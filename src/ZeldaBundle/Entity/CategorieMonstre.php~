@@ -5,12 +5,12 @@ namespace ZeldaBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Categorie
+ * CategorieMonstre
  *
- * @ORM\Table(name="categorie")
- * @ORM\Entity(repositoryClass="ZeldaBundle\Repository\CategorieRepository")
+ * @ORM\Table(name="categorie_monstre")
+ * @ORM\Entity(repositoryClass="ZeldaBundle\Repository\CategorieMonstreRepository")
  */
-class Categorie
+class CategorieMonstre
 {
     /**
      * @var int
@@ -44,7 +44,7 @@ class Categorie
      *
      * @param string $libelle
      *
-     * @return Categorie
+     * @return CategorieMonstre
      */
     public function setLibelle($libelle)
     {
@@ -62,8 +62,5 @@ class Categorie
     {
         return $this->libelle;
     }
-    public function __toString()
-    {
-        return $this->libelle;
-    }
 }
+

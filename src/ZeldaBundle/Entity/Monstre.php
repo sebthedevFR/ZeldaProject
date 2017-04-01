@@ -31,7 +31,7 @@ class Monstre
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=1000)
+     * @ORM\Column(name="description", type="text", length=5000)
      */
     private $description;
 
@@ -63,6 +63,11 @@ class Monstre
      * @ORM\ManyToMany (targetEntity="ZeldaBundle\Entity\Image", cascade={"persist"})
      */
     private $lesImages;
+
+    /**
+     * @ORM\ManyToMany (targetEntity="ZeldaBundle\Entity\Materiau", cascade={"persist"})
+     */
+    private $lesMateriaux;
 
 
     /**
@@ -99,29 +104,6 @@ class Monstre
         return $this->libelle;
     }
 
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Monstre
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
 
     /**
      * Set vignetteUrl
@@ -273,5 +255,63 @@ class Monstre
     public function __toString()
     {
         return $this->libelle;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Monstre
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Add lesMateriaux
+     *
+     * @param \ZeldaBundle\Entity\Materiau $lesMateriaux
+     *
+     * @return Monstre
+     */
+    public function addLesMateriaux(\ZeldaBundle\Entity\Materiau $lesMateriaux)
+    {
+        $this->lesMateriaux[] = $lesMateriaux;
+
+        return $this;
+    }
+
+    /**
+     * Remove lesMateriaux
+     *
+     * @param \ZeldaBundle\Entity\Materiau $lesMateriaux
+     */
+    public function removeLesMateriaux(\ZeldaBundle\Entity\Materiau $lesMateriaux)
+    {
+        $this->lesMateriaux->removeElement($lesMateriaux);
+    }
+
+    /**
+     * Get lesMateriaux
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLesMateriaux()
+    {
+        return $this->lesMateriaux;
     }
 }

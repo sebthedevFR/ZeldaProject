@@ -12,20 +12,19 @@ class ZeldaController extends Controller
     {
         return $this->render('ZeldaBundle:Zelda:index.html.twig');
     }
-    public function afficherCategAction($id)
+    public function afficherCategAction()
     {
         $em=$this->getDoctrine()->getManager();
         $armeRepository = $em->getRepository('ZeldaBundle:Arme');
-        $lesArmes = $armeRepository->findBy(
-            array('laCategorie' => $id)
-        );
+        $lesArmes = $armeRepository->findAll();
+
 
         $em=$this->getDoctrine()->getManager();
         $categRepository = $em->getRepository('ZeldaBundle:Categorie');
-        $laCateg = $categRepository->find($id);
+        $lesCateg = $categRepository->findAll();
 
 
-        return $this->render('ZeldaBundle:Zelda:categorie.html.twig', array('lesArmes'=>$lesArmes, 'laCateg'=>$laCateg));
+        return $this->render('ZeldaBundle:Zelda:categorie.html.twig', array('lesArmes'=>$lesArmes, 'lesCateg'=>$lesCateg));
     }
     public function afficherItemAction($id)
     {

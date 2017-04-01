@@ -13,3 +13,15 @@ zelda_item:
     defaults: { _controller: ZeldaBundle:Zelda:afficherItem, id: 1 }
     requirements:
                 id: \d+
+
+zelda_monstre:
+    path:     /monstre/{id}
+    defaults: { _controller: ZeldaBundle:Zelda:afficherMonstre, id: 1 }
+    requirements:
+                id: \d+
+
+zelda_categorieMonstre:
+    path:     /monstreCateg/{id}
+    defaults: { _controller: ZeldaBundle:Zelda:afficherMonstreCateg, id: 1 }
+    requirements:
+                id: \d+

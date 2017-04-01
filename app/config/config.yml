@@ -77,3 +77,5 @@ easy_admin:
         - ZeldaBundle\Entity\Image
         - ZeldaBundle\Entity\Lieu
         - ZeldaBundle\Entity\Categorie
+        - ZeldaBundle\Entity\CategorieMonstre
+        - ZeldaBundle\Entity\Monstre

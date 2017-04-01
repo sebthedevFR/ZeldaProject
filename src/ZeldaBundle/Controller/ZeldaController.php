@@ -40,4 +40,32 @@ class ZeldaController extends Controller
 
         return $this->render('ZeldaBundle:Zelda:item.html.twig', array('uneArme'=>$uneArme, 'lesArmes'=>$listArmes));
     }
+
+    public function afficherMonstreCategAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $monstreRepository = $em->getRepository('ZeldaBundle:Monstre');
+        $lesMonstres = $monstreRepository->findBy(
+            array('laCategorieMonstre'=>$id)
+        );
+        $em=$this->getDoctrine()->getManager();
+        $categMonstreRepository = $em->getRepository('ZeldaBundle:CategorieMonstre');
+        $laCategMonstre = $categMonstreRepository->find($id);
+
+        return $this->render('ZeldaBundle:Zelda:categorieMonstre.html.twig',array('lesMonstres'=>$lesMonstres,'laCategMonstre'=>$laCategMonstre));
+    }
+
+    public function afficherMonstreAction($id)
+    {
+
+        $em=$this->getDoctrine()->getManager();
+        $monstreRepository = $em->getRepository('ZeldaBundle:Monstre');
+        $unMonstre = $monstreRepository->find($id);
+
+        $em=$this->getDoctrine()->getManager();
+        $lesMonstresRepository = $em->getRepository('ZeldaBundle:Monstre');
+        $listMonstres=$lesMonstresRepository->findAll();
+
+        return $this->render('ZeldaBundle:Zelda:monstre.html.twig', array('unMonstre'=>$unMonstre, 'lesMonstres'=>$listMonstres));
+    }
 }

@@ -5,12 +5,12 @@ namespace ZeldaBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Arme
+ * Monstre
  *
- * @ORM\Table(name="arme")
- * @ORM\Entity(repositoryClass="ZeldaBundle\Repository\ArmeRepository")
+ * @ORM\Table(name="monstre")
+ * @ORM\Entity(repositoryClass="ZeldaBundle\Repository\MonstreRepository")
  */
-class Arme
+class Monstre
 {
     /**
      * @var int
@@ -24,30 +24,16 @@ class Arme
     /**
      * @var string
      *
-     * @ORM\Column(name="libelle", type="string", length=5000)
+     * @ORM\Column(name="libelle", type="string", length=255)
      */
     private $libelle;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="numeroIg", type="integer")
-     */
-    private $numeroIg;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", length=5000)
+     * @ORM\Column(name="description", type="string", length=1000)
      */
     private $description;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="efficacite", type="integer")
-     */
-    private $efficacite;
 
     /**
      * @var string
@@ -57,9 +43,16 @@ class Arme
     private $vignetteUrl;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ZeldaBundle\Entity\Categorie")
+     * @var int
+     *
+     * @ORM\Column(name="numeroIg", type="integer")
      */
-    private $laCategorie;
+    private $numeroIg;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="ZeldaBundle\Entity\CategorieMonstre")
+    */
+    private $laCategorieMonstre;
 
     /**
      * @ORM\ManyToMany (targetEntity="ZeldaBundle\Entity\Lieu", cascade={"persist"})
@@ -87,7 +80,7 @@ class Arme
      *
      * @param string $libelle
      *
-     * @return Arme
+     * @return Monstre
      */
     public function setLibelle($libelle)
     {
@@ -107,85 +100,11 @@ class Arme
     }
 
     /**
-     * Set numeroIg
-     *
-     * @param integer $numeroIg
-     *
-     * @return Arme
-     */
-    public function setNumeroIg($numeroIg)
-    {
-        $this->numeroIg = $numeroIg;
-
-        return $this;
-    }
-
-    /**
-     * Get numeroIg
-     *
-     * @return int
-     */
-    public function getNumeroIg()
-    {
-        return $this->numeroIg;
-    }
-
-
-
-    /**
-     * Set efficacite
-     *
-     * @param integer $efficacite
-     *
-     * @return Arme
-     */
-    public function setEfficacite($efficacite)
-    {
-        $this->efficacite = $efficacite;
-
-        return $this;
-    }
-
-    /**
-     * Get efficacite
-     *
-     * @return int
-     */
-    public function getEfficacite()
-    {
-        return $this->efficacite;
-    }
-
-    /**
-     * Set vignetteUrl
-     *
-     * @param string $vignetteUrl
-     *
-     * @return Arme
-     */
-    public function setVignetteUrl($vignetteUrl)
-    {
-        $this->vignetteUrl = $vignetteUrl;
-
-        return $this;
-    }
-
-    /**
-     * Get vignetteUrl
-     *
-     * @return string
-     */
-    public function getVignetteUrl()
-    {
-        return $this->vignetteUrl;
-    }
-
-    /**
      * Set description
      *
      * @param string $description
      *
-     * @return Arme
+     * @return Monstre
      */
     public function setDescription($description)
     {
@@ -205,27 +124,51 @@ class Arme
     }
 
     /**
-     * Set laCategorie
+     * Set vignetteUrl
      *
-     * @param \ZeldaBundle\Entity\Categorie $laCategorie
+     * @param string $vignetteUrl
      *
-     * @return Arme
+     * @return Monstre
      */
-    public function setLaCategorie(\ZeldaBundle\Entity\Categorie $laCategorie = null)
+    public function setVignetteUrl($vignetteUrl)
     {
-        $this->laCategorie = $laCategorie;
+        $this->vignetteUrl = $vignetteUrl;
 
         return $this;
     }
 
     /**
-     * Get laCategorie
+     * Get vignetteUrl
      *
-     * @return \ZeldaBundle\Entity\Categorie
+     * @return string
      */
-    public function getLaCategorie()
+    public function getVignetteUrl()
     {
-        return $this->laCategorie;
+        return $this->vignetteUrl;
+    }
+
+    /**
+     * Set numeroIg
+     *
+     * @param integer $numeroIg
+     *
+     * @return Monstre
+     */
+    public function setNumeroIg($numeroIg)
+    {
+        $this->numeroIg = $numeroIg;
+
+        return $this;
+    }
+
+    /**
+     * Get numeroIg
+     *
+     * @return int
+     */
+    public function getNumeroIg()
+    {
+        return $this->numeroIg;
     }
     /**
      * Constructor
@@ -237,11 +180,35 @@ class Arme
     }
 
     /**
+     * Set laCategorieMonstre
+     *
+     * @param \ZeldaBundle\Entity\CategorieMonstre $laCategorieMonstre
+     *
+     * @return Monstre
+     */
+    public function setLaCategorieMonstre(\ZeldaBundle\Entity\CategorieMonstre $laCategorieMonstre = null)
+    {
+        $this->laCategorieMonstre = $laCategorieMonstre;
+
+        return $this;
+    }
+
+    /**
+     * Get laCategorieMonstre
+     *
+     * @return \ZeldaBundle\Entity\CategorieMonstre
+     */
+    public function getLaCategorieMonstre()
+    {
+        return $this->laCategorieMonstre;
+    }
+
+    /**
      * Add lesLieux
      *
      * @param \ZeldaBundle\Entity\Lieu $lesLieux
      *
-     * @return Arme
+     * @return Monstre
      */
     public function addLesLieux(\ZeldaBundle\Entity\Lieu $lesLieux)
     {
@@ -275,7 +242,7 @@ class Arme
      *
      * @param \ZeldaBundle\Entity\Image $lesImage
      *
-     * @return Arme
+     * @return Monstre
      */
     public function addLesImage(\ZeldaBundle\Entity\Image $lesImage)
     {
@@ -303,7 +270,6 @@ class Arme
     {
         return $this->lesImages;
     }
-
     public function __toString()
     {
         return $this->libelle;

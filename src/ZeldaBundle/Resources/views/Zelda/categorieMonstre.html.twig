@@ -1,0 +1,25 @@
+{% extends "ZeldaBundle::layout.html.twig" %}
+{% block title %}Categorie des Monstres{% endblock %}
+{% block pageContent %}
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">{% block pageHeaderMain %}{{ laCategMonstre.libelle }}{% endblock %}
+                <small>{% block pageHeaderSecondary %}{% endblock %}</small>
+            </h1>
+        </div>
+    </div>
+    <!-- Projects Row -->
+    <div class="row">
+        {% for monstres in lesMonstres %}
+            <div class="col-md-2 portfolio-item">
+                <a href="{{ path('zelda_monstre', {'id': monstres.id}) }}">
+                    <img class="img-responsive" src="{{ monstres.vignetteUrl }}" alt="" width="700" height="400">
+                </a>
+                <h4>
+                    <a href="{{ path('zelda_monstre', {'id': monstres.id}) }}">{{ monstres.libelle }}</a>
+                </h4>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

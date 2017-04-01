@@ -12,10 +12,13 @@
     <!-- ==========================
                  CSS
     =========================== -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/heroic-features.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/portfolio-item.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+
+    <link type="text/css" href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link type="text/css" href="{{ asset('css/heroic-features.css') }}" rel="stylesheet">
+    <link type="text/css" href="{{ asset('css/portfolio-item.css') }}" rel="stylesheet">
+    <link type="text/css" href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+    <link type="text/css" href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
     {% endblock %}
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -25,51 +28,47 @@
 <body>
 {% block navbar %}
 <!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ path('zelda_homepage') }}">Zelda</a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Armes <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ path('zelda_categorie', {'id': 1}) }}">Une Main</a></li>
-                        <li><a href="{{ path('zelda_categorie', {'id': 1}) }}">Deux Mains</a></li>
-                        <li><a href="{{ path('zelda_categorie') }}">Lances</a></li>
-                        <li><a href="{{ path('zelda_categorie') }}">Bouclier</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{{ path('zelda_categorie') }}">Arcs</a></li>
-                        <li><a href="{{ path('zelda_categorie') }}">Flèches</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Monstres<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ path('zelda_categorieMonstre', {'id':1}) }}">Petit Monstres</a></li>
-                        <li><a href="{{ path('zelda_categorieMonstre', {'id':2}) }}">Mokoblins, Moblins et Lézalfos	</a></li>
-                        <li><a href="{{ path('zelda_categorieMonstre', {'id':3}) }}">World boss et dérivés	</a></li>
-                        <li><a href="{{ path('zelda_categorieMonstre', {'id':4}) }}">Gardiens et Yigas</a></li>
-                        <li><a href="{{ path('zelda_categorieMonstre', {'id':5}) }}">Créatures mystiques et boss</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Cuisine</a>
-                </li>
+    <div class="example3">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path('zelda_homepage') }}"><img src="{{ asset('images/zeldapedia.png') }}" alt="Dispute Bills">
+                    </a>
+                </div>
+                <div id="navbar3" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Armes <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('zelda_categorie', {'id': 1}) }}">Une Main</a></li>
+                                <li><a href="{{ path('zelda_categorie', {'id': 2}) }}">Deux Mains</a></li>
+                                <li><a href="{{ path('zelda_categorie', {'id': 3}) }}">Lances</a></li>
+                                <li><a href="{{ path('zelda_categorie', {'id': 4}) }}">Bouclier</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ path('zelda_categorie') }}">Arcs</a></li>
+                                <li><a href="{{ path('zelda_categorie') }}">Flèches</a></li>
 
-            </ul>
-        </div>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Monstres</a>
+                        </li>
+                        <li>
+                            <a href="#">Cuisine</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!--/.container-fluid -->
+        </nav>
     </div>
-</nav>
 {% endblock %}
 <!-- Page Content -->
 <div class="container">

@@ -1,0 +1,87 @@
+{% extends "ZeldaBundle::layout.html.twig" %}
+
+{% block title %}Categorie{% endblock %}
+{% block pageContent %}
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">{% block pageHeaderMain %}{{ laCateg.libelle }}{% endblock %}
+                <small>{% block pageHeaderSecondary %}{% endblock %}</small>
+            </h1>
+        </div>
+    </div>
+    <!-- Projects Row -->
+    <div class="row">
+        {% for armes in lesArmes %}
+        <div class="col-md-2 portfolio-item">
+            <a href="{{ path('zelda_item', {'id': armes.id}) }}">
+                <img class="img-responsive" src="{{ armes.vignetteUrl }}" alt="" width="700" height="400">
+            </a>
+            <h4>
+                <a href="{{ path('zelda_item', {'id': armes.id}) }}">{{ armes.libelle }}</a>
+            </h4>
+        </div>
+
+        {% endfor %}
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+
+    <!-- Pagination -->
+    <div class="row text-center">
+        <div class="col-lg-12">
+            <ul class="pagination">
+                <li>
+                    <a href="#">&laquo;</a>
+                </li>
+                <li class="active">
+                    <a href="#">1</a>
+                </li>
+                <li>
+                    <a href="#">2</a>
+                </li>
+                <li>
+                    <a href="#">3</a>
+                </li>
+                <li>
+                    <a href="#">4</a>
+                </li>
+                <li>
+                    <a href="#">5</a>
+                </li>
+                <li>
+                    <a href="#">&raquo;</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- /.row -->
+{% endblock %}

@@ -34,6 +34,10 @@ class ZeldaController extends Controller
         $armeRepository = $em->getRepository('ZeldaBundle:Arme');
         $uneArme = $armeRepository->find($id);
 
-        return $this->render('ZeldaBundle:Zelda:item.html.twig', array('uneArme'=>$uneArme));
+        $em=$this->getDoctrine()->getManager();
+        $lesArmesRepository = $em->getRepository('ZeldaBundle:Arme');
+        $listArmes=$lesArmesRepository->findAll();
+
+        return $this->render('ZeldaBundle:Zelda:item.html.twig', array('uneArme'=>$uneArme, 'lesArmes'=>$listArmes));
     }
 }

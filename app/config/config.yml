@@ -72,10 +72,19 @@ swiftmailer:
 
 # app/config/config.yml
 easy_admin:
+    site_name: 'Zelda<strong>Pedia</strong>'
+    list:
+          actions:
+                 - { name: 'show', icon: 'search', label: ''  }
+                 - { name: 'edit', icon: 'pencil', label: ''  }
+                 - { name: 'delete', icon: 'remove', label: ''  }
     entities:
         - ZeldaBundle\Entity\Arme
+        - ZeldaBundle\Entity\Monstre
+        - ZeldaBundle\Entity\Materiau
         - ZeldaBundle\Entity\Image
         - ZeldaBundle\Entity\Lieu
+        - ZeldaBundle\Entity\Effet
         - ZeldaBundle\Entity\Categorie
         - ZeldaBundle\Entity\CategorieMonstre
-        - ZeldaBundle\Entity\Monstre
+

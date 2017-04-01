@@ -1,0 +1,175 @@
+<?php
+
+namespace ZeldaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Materiau
+ *
+ * @ORM\Table(name="materiau")
+ * @ORM\Entity(repositoryClass="ZeldaBundle\Repository\MateriauRepository")
+ */
+class Materiau
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="libelle", type="string", length=5000)
+     */
+    private $libelle;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="numeroIg", type="integer")
+     */
+    private $numeroIg;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vignetteUrl", type="string", length=255)
+     */
+    private $vignetteUrl;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="energie", type="float")
+     */
+    private $energie;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\ManyToMany (targetEntity="ZeldaBundle\Entity\Lieu", cascade={"persist"})
+     */
+    private $lesLieux;
+
+    /**
+     * @ORM\ManyToMany (targetEntity="ZeldaBundle\Entity\Effet", cascade={"persist"})
+     */
+    private $lesEffets;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set libelle
+     *
+     * @param string $libelle
+     *
+     * @return Materiau
+     */
+    public function setLibelle($libelle)
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    /**
+     * Get libelle
+     *
+     * @return string
+     */
+    public function getLibelle()
+    {
+        return $this->libelle;
+    }
+
+    /**
+     * Set numeroIg
+     *
+     * @param integer $numeroIg
+     *
+     * @return Materiau
+     */
+    public function setNumeroIg($numeroIg)
+    {
+        $this->numeroIg = $numeroIg;
+
+        return $this;
+    }
+
+    /**
+     * Get numeroIg
+     *
+     * @return int
+     */
+    public function getNumeroIg()
+    {
+        return $this->numeroIg;
+    }
+
+    /**
+     * Set energie
+     *
+     * @param float $energie
+     *
+     * @return Materiau
+     */
+    public function setEnergie($energie)
+    {
+        $this->energie = $energie;
+
+        return $this;
+    }
+
+    /**
+     * Get energie
+     *
+     * @return float
+     */
+    public function getEnergie()
+    {
+        return $this->energie;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Materiau
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+}

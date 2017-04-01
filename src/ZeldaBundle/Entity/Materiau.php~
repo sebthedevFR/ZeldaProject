@@ -172,4 +172,104 @@ class Materiau
     {
         return $this->description;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->lesLieux = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->lesEffets = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set vignetteUrl
+     *
+     * @param string $vignetteUrl
+     *
+     * @return Materiau
+     */
+    public function setVignetteUrl($vignetteUrl)
+    {
+        $this->vignetteUrl = $vignetteUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get vignetteUrl
+     *
+     * @return string
+     */
+    public function getVignetteUrl()
+    {
+        return $this->vignetteUrl;
+    }
+
+    /**
+     * Add lesLieux
+     *
+     * @param \ZeldaBundle\Entity\Lieu $lesLieux
+     *
+     * @return Materiau
+     */
+    public function addLesLieux(\ZeldaBundle\Entity\Lieu $lesLieux)
+    {
+        $this->lesLieux[] = $lesLieux;
+
+        return $this;
+    }
+
+    /**
+     * Remove lesLieux
+     *
+     * @param \ZeldaBundle\Entity\Lieu $lesLieux
+     */
+    public function removeLesLieux(\ZeldaBundle\Entity\Lieu $lesLieux)
+    {
+        $this->lesLieux->removeElement($lesLieux);
+    }
+
+    /**
+     * Get lesLieux
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLesLieux()
+    {
+        return $this->lesLieux;
+    }
+
+    /**
+     * Add lesEffet
+     *
+     * @param \ZeldaBundle\Entity\Effet $lesEffet
+     *
+     * @return Materiau
+     */
+    public function addLesEffet(\ZeldaBundle\Entity\Effet $lesEffet)
+    {
+        $this->lesEffets[] = $lesEffet;
+
+        return $this;
+    }
+
+    /**
+     * Remove lesEffet
+     *
+     * @param \ZeldaBundle\Entity\Effet $lesEffet
+     */
+    public function removeLesEffet(\ZeldaBundle\Entity\Effet $lesEffet)
+    {
+        $this->lesEffets->removeElement($lesEffet);
+    }
+
+    /**
+     * Get lesEffets
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLesEffets()
+    {
+        return $this->lesEffets;
+    }
 }

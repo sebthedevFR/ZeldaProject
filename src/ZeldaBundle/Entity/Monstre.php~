@@ -280,4 +280,38 @@ class Monstre
     {
         return $this->description;
     }
+
+    /**
+     * Add lesMateriaux
+     *
+     * @param \ZeldaBundle\Entity\Materiau $lesMateriaux
+     *
+     * @return Monstre
+     */
+    public function addLesMateriaux(\ZeldaBundle\Entity\Materiau $lesMateriaux)
+    {
+        $this->lesMateriaux[] = $lesMateriaux;
+
+        return $this;
+    }
+
+    /**
+     * Remove lesMateriaux
+     *
+     * @param \ZeldaBundle\Entity\Materiau $lesMateriaux
+     */
+    public function removeLesMateriaux(\ZeldaBundle\Entity\Materiau $lesMateriaux)
+    {
+        $this->lesMateriaux->removeElement($lesMateriaux);
+    }
+
+    /**
+     * Get lesMateriaux
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLesMateriaux()
+    {
+        return $this->lesMateriaux;
+    }
 }

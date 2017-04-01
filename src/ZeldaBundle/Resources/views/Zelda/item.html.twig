@@ -1,4 +1,9 @@
 {% extends "ZeldaBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link type="text/css" href="{{ asset('css/customItem.css') }}" rel="stylesheet">
+{% endblock %}
 {% block title %}{{ uneArme.libelle }}{% endblock %}
 {% block pageContent %}
         <!-- Portfolio Item Heading -->
@@ -13,10 +18,10 @@
         <!-- Portfolio Item Row -->
         <div class="row">
             <div class="col-md-6" align="center" >
-                <img class="img-responsive" src="{{ uneArme.vignetteUrl }}" alt="">
+                <img class="img-responsive vignette" src="{{ uneArme.vignetteUrl }}" alt="">
             </div>
             <div class="col-md-4">
-                <h3>Caractéristiques </h3>
+                <h3 align="center">Caractéristiques </h3>
                 <p align="justify"><i>{{ uneArme.description }}</i></p>
                 {% if uneArme.getLesLieux() is empty %}
                     <h3 align="center">Principaux lieux de disponibilité</h3>

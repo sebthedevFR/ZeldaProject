@@ -69,4 +69,28 @@ class Effet
     {
         return $this->libelle;
     }
+
+    /**
+     * Set iconUrl
+     *
+     * @param string $iconUrl
+     *
+     * @return Effet
+     */
+    public function setIconUrl($iconUrl)
+    {
+        $this->iconUrl = $iconUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get iconUrl
+     *
+     * @return string
+     */
+    public function getIconUrl()
+    {
+        return $this->iconUrl;
+    }
 }

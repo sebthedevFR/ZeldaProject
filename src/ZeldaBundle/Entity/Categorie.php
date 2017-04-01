@@ -28,6 +28,13 @@ class Categorie
      */
     private $libelle;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="libelleNoEspace", type="string", length=255)
+     */
+    private $libelleNoEspace;
+
 
     /**
      * Get id
@@ -65,5 +72,29 @@ class Categorie
     public function __toString()
     {
         return $this->libelle;
+    }
+
+    /**
+     * Set libelleNoEspace
+     *
+     * @param string $libelleNoEspace
+     *
+     * @return Categorie
+     */
+    public function setLibelleNoEspace($libelleNoEspace)
+    {
+        $this->libelleNoEspace = $libelleNoEspace;
+
+        return $this;
+    }
+
+    /**
+     * Get libelleNoEspace
+     *
+     * @return string
+     */
+    public function getLibelleNoEspace()
+    {
+        return $this->libelleNoEspace;
     }
 }

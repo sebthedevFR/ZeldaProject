@@ -5,41 +5,38 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">{{ uneArme.libelle }}
-                    <small>Item Subheading</small>
+                    <small>{{ uneArme.numeroIg }}</small>
                 </h1>
             </div>
         </div>
-        <!-- /.row -->
 
         <!-- Portfolio Item Row -->
         <div class="row">
-
-            <div class="col-md-8">
+            <div class="col-md-6" align="center" >
                 <img class="img-responsive" src="{{ uneArme.vignetteUrl }}" alt="">
-
             </div>
-
             <div class="col-md-4">
                 <h3>Caractéristiques </h3>
-                <p>{{ uneArme.description }}</p>
+                <p align="justify"><i>{{ uneArme.description }}</i></p>
                 {% if uneArme.getLesLieux() is empty %}
-                    <h3>Principaux lieux de disponibilité</h3>
+                    <h3 align="center">Principaux lieux de disponibilité</h3>
                     <ul>
                         <li>Inconnu</li>
                     </ul>
                 {% else %}
-                    <h3>Principaux lieux de disponibilité</h3>
+                    <h3 align="center">Principaux lieux de disponibilité</h3>
                     <ul>
                         {% for lieu in uneArme.getLesLieux() %}
                             <li>{{ lieu.getLibelle() }}</li>
                         {% endfor %}
                     </ul>
                 {% endif %}
-                <h3>Efficacité</h3>
+                <h3 align="center">Efficacité</h3>
                 <ul>
                     <li>{{ uneArme.efficacite }}</li>
                 </ul>
             </div>
+            <div class="col-md-2"></div>
         </div>
         <!-- /.row -->
 

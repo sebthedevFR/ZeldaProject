@@ -10,15 +10,16 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">{{ uneArme.libelle }}
-                    <small>{{ uneArme.numeroIg }}</small>
+                    <small class="smalltext">{{ uneArme.numeroIg }}</small>
                 </h1>
             </div>
         </div>
 
         <!-- Portfolio Item Row -->
-        <div class="row">
+        <div class="row ">
             <div class="col-md-6" align="center" >
                 <img class="img-responsive vignette" src="{{ uneArme.vignetteUrl }}" alt="">
+
             </div>
             <div class="col-md-4">
                 <h3 align="center">Caractéristiques </h3>
@@ -37,9 +38,7 @@
                     </ul>
                 {% endif %}
                 <h3 align="center">Efficacité</h3>
-                <ul>
-                    <li>{{ uneArme.efficacite }}</li>
-                </ul>
+                <p>{{ uneArme.efficacite }}</p>
             </div>
             <div class="col-md-2"></div>
         </div>
@@ -53,18 +52,17 @@
             </div>
             {% for images in uneArme.getLesImages() %}
             <div class="col-sm-3 col-xs-6">
-                <a href="{{ images.url }}">
+                <a href="{{ images.url }}" data-lity data-lity-desc="Photo of a flower">
                     <img class="img-responsive portfolio-item" src="{{ images.url }}" alt="{{ images.alt }}">
                 </a>
             </div>
-            <!-- Modal -->
             {% endfor %}
         </div>
         {% endif %}
 
-        <div class="row">
+        <div class="row ">
             <div class="col-lg-12">
-                <h3 class="page-header">Autres épées à une main.</h3>
+                <h3 class="page-header">Autres armes.</h3>
             </div>
             {% for uneArmes in lesArmes %}
             <div class="col-sm-1 col-xs-2">
@@ -79,4 +77,9 @@
         </div>
         <!-- /.row -->
 
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script>
+    </script>
 {% endblock %}

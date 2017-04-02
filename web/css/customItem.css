@@ -1,11 +1,45 @@
+@font-face {
+    font-family: SunnyDay;
+    src: url("../fonts/Sunny.ttf");
+}
+
 body{
     --shadow: 0 0 5px rgba(0, 10, 0, 0);
+
 }
+
+h1, p, li, h3, a, .smalltext{
+    color: #00a7d0;
+    text-shadow: 2px 2px 50px #0d6aad;
+}
+
+p, li {
+    font-size: medium;
+}
+
+li {
+    list-style-type:none;
+
+}
+
+ul {
+    padding: 0;
+}
+.row{
+    color: #0d6aad;
+}
+
+/*div{*/
+     /*background-image: url("../images/itemBackground.png");*/
+    /*background-repeat: repeat;*/
+ /*}*/
+
+
 
 .vignette {
     position: relative;
     --focus-light: #3FE9D3;
-    --focus-dark: #04B9C3;
+    --focus-dark: #0d6aad;
     animation: focus 5s infinite;
     margin-bottom: 20px;
 }
@@ -27,14 +61,15 @@ body{
     display: inline-block;
 }
 
+
 @keyframes focus {
     0% {
-        box-shadow: var(--shadow), 0 0 0 5px var(--focus-light);
+        box-shadow: var(--shadow), 0 0 20px 5px var(--focus-light);
     }
     50% {
-        box-shadow: var(--shadow), 0 0 0 5px var(--focus-dark);
+        box-shadow: var(--shadow), 0 0 20px 5px var(--focus-dark);
     }
     100% {
-        box-shadow: var(--shadow), 0 0 0 5px var(--focus-light);
+        box-shadow: var(--shadow), 0 0 20px 5px var(--focus-light);
     }
 }

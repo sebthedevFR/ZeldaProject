@@ -2,15 +2,15 @@
 {% block title %}ZeldaPedia{% endblock %}
 {% block pageContent %}
     <!-- Jumbotron Header -->
-    <header class="jumbotron hero-spacer">
-        <h1>A Warm Welcome!</h1>
+    <header class="jumbotron hero-spacer headerIndex">
+        <h1>Bienvenue!</h1>
     </header>
     <hr>
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Sommaire
-                <small>Secondary Text</small>
+                <small></small>
             </h1>
         </div>
     </div>
@@ -19,16 +19,16 @@
     <!-- Projects Row -->
     <div class="row">
         <div class="col-md-6 portfolio-item">
-            <a href="#">
-                <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+            <a href="{{ path('zelda_categorie')}}">
+                <img class="img-responsive" src="http://i.imgur.com/o3Xy7bF.jpg" alt="" >
             </a>
             <h3 style="text-align: center;">
-                <a href="{{ path('zelda_categorie', {'id': 1}) }}">Armes</a>
+                <a href="{{ path('zelda_categorie')}}">Armes</a>
             </h3>
         </div>
         <div class="col-md-6 portfolio-item">
             <a href="#">
-                <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                <img class="img-responsive" src="http://i.imgur.com/o3Xy7bF.jpg" alt="">
             </a>
             <h3 style="text-align: center;">
                 <a href="#">Project Name</a>
@@ -36,7 +36,7 @@
         </div>
         <div class="col-md-6 portfolio-item">
             <a href="#">
-                <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                <img class="img-responsive" src="http://i.imgur.com/o3Xy7bF.jpg" alt="">
             </a>
             <h3 style="text-align: center;">
                 <a href="#">Project Name</a>

@@ -9,21 +9,30 @@
 }
 
 body {
-    background-image: url("../images/background.jpg");
+    background-image: url("../images/itemBackground.png");
     padding:0px;
+
 }
+
+
 
 .btn {
-    background-color: #00a7d0;
-    box-shadow: 0 0 20px 1px #0d6aad;
-    margin-right: 20px;
-    margin-bottom: 10px;
-    margin-top: 10px;
+     background-color: #0d6aad;
+     /*box-shadow: 0 0 20px 1px #00a7d0;*/
+     margin-right: 20px;
+     margin-bottom: 10px;
+     margin-top: 10px;
+    color: white;
+ }
+
+.indexCateg {
+    border-radius: 15px;
 }
 
+
 .btn:hover {
-    background-color: #0d6aad;
-    box-shadow: 0 0 20px 1px #00a7d0;
+    background-color: #00a7d0;
+    box-shadow: 0 0 20px 1px #0d6aad;
 }
 
 div {

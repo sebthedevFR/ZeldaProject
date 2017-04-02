@@ -5,12 +5,9 @@
     <div class="text-center breadcrumb">
         <div class="row">
             <div class="controls">
-                <button class="filter btn-filter btn btn-primary btn-lg" data-filter="all">Tous</button>
                 {% for categ in lesCateg %}
                     <button class="filter btn-filter btn btn-primary btn-lg" data-filter=".{{ categ.libellenoespace }}">{{ categ.libelle }}</button>
                 {% endfor %}
-                <button class="filter btn-filter btn btn-primary btn-lg" data-sort="order:descending">Ascending</button>
-                <button type="button" data-filter="all">All</button>
             </div>
         </div>
     </div>

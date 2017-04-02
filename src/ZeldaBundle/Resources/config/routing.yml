@@ -3,10 +3,8 @@ zelda_homepage:
     defaults: { _controller: ZeldaBundle:Zelda:index }
 
 zelda_categorie:
-    path:     /categ/{id}
-    defaults: { _controller: ZeldaBundle:Zelda:afficherCateg, id: 1 }
-    requirements:
-                id: \d+
+    path:     /categ
+    defaults: { _controller: ZeldaBundle:Zelda:afficherCateg }
 
 zelda_item:
     path:     /item/{id}

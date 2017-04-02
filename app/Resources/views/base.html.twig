@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
 
     <title>{% block title %}{% endblock %}</title>
     {% block stylesheets %}
@@ -69,6 +70,9 @@
                         <li>
                             <a href="#">Cuisine</a>
                         </li>
+                        <li>
+                            <a href="#">Matériaux</a>
+                        </li>
                     </ul>
                 </div>
                 <!--/.nav-collapse -->
@@ -95,8 +99,9 @@
 <!-- /.container -->
 <!-- jQuery -->
 {% block javascript %}
-<script src="{{ asset('js/jquery.js') }}"></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/mixitup.min.js') }}"></script>
 {% endblock %}
 </body>
 </html>

@@ -1,25 +1,40 @@
-{% extends "ZeldaBundle::layout.html.twig" %}
+{% extends "@Zelda/layout.html.twig" %}
 {% block title %}Categorie{% endblock %}
 {% block pageContent %}
 
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">{% block pageHeaderMain %}{{ laCateg.libelle }}{% endblock %}
-                <small>{% block pageHeaderSecondary %}{% endblock %}</small>
-            </h1>
+    <div class="text-center breadcrumb">
+        <div class="row">
+            <div class="controls">
+                <button class="filter btn-filter btn btn-primary btn-lg" data-filter="all">Tous</button>
+                {% for categ in lesCateg %}
+                    <button class="filter btn-filter btn btn-primary btn-lg" data-filter=".{{ categ.libellenoespace }}">{{ categ.libelle }}</button>
+                {% endfor %}
+                <button class="filter btn-filter btn btn-primary btn-lg" data-sort="order:descending">Ascending</button>
+                <button type="button" data-filter="all">All</button>
+            </div>
         </div>
     </div>
-    <!-- Projects Row -->
-    <div class="row">
-        {% for armes in lesArmes %}
-        <div class="col-md-2 portfolio-item">
-            <a href="{{ path('zelda_item', {'id': armes.id}) }}">
-                <img class="img-responsive" src="{{ armes.vignetteUrl }}" alt="" width="700" height="400">
-            </a>
-            <h4>
-                <a href="{{ path('zelda_item', {'id': armes.id}) }}">{{ armes.libelle }}</a>
-            </h4>
+
+    <div class="container-fluid">
+        <div class="row no-gutter" id="conteneur">
+            {% for armes in lesArmes %}
+                <div class="col-md-2 portfolio-item mix {{ armes.laCategorie.libellenoespace }}">
+                    <a href="{{ path('zelda_item', {'id': armes.id}) }}">
+                        <img class="img-responsive" src="{{ armes.vignetteUrl }}" alt="" width="700" height="400">
+                    </a>
+                    <h4>
+                        <a href="{{ path('zelda_item', {'id': armes.id}) }}">{{ armes.libelle }}</a>
+                    </h4>
+                </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script>
+        $(function () {
+            $('#conteneur').mixItUp();
+        });
+    </script>
 {% endblock %}

@@ -31,7 +31,7 @@ class Monstre
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=1000)
+     * @ORM\Column(name="description", type="text", length=5000)
      */
     private $description;
 
@@ -63,6 +63,11 @@ class Monstre
      * @ORM\ManyToMany (targetEntity="ZeldaBundle\Entity\Image", cascade={"persist"})
      */
     private $lesImages;
+
+    /**
+     * @ORM\ManyToMany (targetEntity="ZeldaBundle\Entity\Materiau", cascade={"persist"})
+     */
+    private $lesMateriaux;
 
 
     /**
@@ -99,29 +104,6 @@ class Monstre
         return $this->libelle;
     }
 
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Monstre
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
 
     /**
      * Set vignetteUrl
@@ -170,5 +152,166 @@ class Monstre
     {
         return $this->numeroIg;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->lesLieux = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->lesImages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Set laCategorieMonstre
+     *
+     * @param \ZeldaBundle\Entity\CategorieMonstre $laCategorieMonstre
+     *
+     * @return Monstre
+     */
+    public function setLaCategorieMonstre(\ZeldaBundle\Entity\CategorieMonstre $laCategorieMonstre = null)
+    {
+        $this->laCategorieMonstre = $laCategorieMonstre;
+
+        return $this;
+    }
+
+    /**
+     * Get laCategorieMonstre
+     *
+     * @return \ZeldaBundle\Entity\CategorieMonstre
+     */
+    public function getLaCategorieMonstre()
+    {
+        return $this->laCategorieMonstre;
+    }
+
+    /**
+     * Add lesLieux
+     *
+     * @param \ZeldaBundle\Entity\Lieu $lesLieux
+     *
+     * @return Monstre
+     */
+    public function addLesLieux(\ZeldaBundle\Entity\Lieu $lesLieux)
+    {
+        $this->lesLieux[] = $lesLieux;
+
+        return $this;
+    }
+
+    /**
+     * Remove lesLieux
+     *
+     * @param \ZeldaBundle\Entity\Lieu $lesLieux
+     */
+    public function removeLesLieux(\ZeldaBundle\Entity\Lieu $lesLieux)
+    {
+        $this->lesLieux->removeElement($lesLieux);
+    }
+
+    /**
+     * Get lesLieux
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLesLieux()
+    {
+        return $this->lesLieux;
+    }
+
+    /**
+     * Add lesImage
+     *
+     * @param \ZeldaBundle\Entity\Image $lesImage
+     *
+     * @return Monstre
+     */
+    public function addLesImage(\ZeldaBundle\Entity\Image $lesImage)
+    {
+        $this->lesImages[] = $lesImage;
+
+        return $this;
+    }
+
+    /**
+     * Remove lesImage
+     *
+     * @param \ZeldaBundle\Entity\Image $lesImage
+     */
+    public function removeLesImage(\ZeldaBundle\Entity\Image $lesImage)
+    {
+        $this->lesImages->removeElement($lesImage);
+    }
+
+    /**
+     * Get lesImages
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLesImages()
+    {
+        return $this->lesImages;
+    }
+    public function __toString()
+    {
+        return $this->libelle;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Monstre
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Add lesMateriaux
+     *
+     * @param \ZeldaBundle\Entity\Materiau $lesMateriaux
+     *
+     * @return Monstre
+     */
+    public function addLesMateriaux(\ZeldaBundle\Entity\Materiau $lesMateriaux)
+    {
+        $this->lesMateriaux[] = $lesMateriaux;
+
+        return $this;
+    }
+
+    /**
+     * Remove lesMateriaux
+     *
+     * @param \ZeldaBundle\Entity\Materiau $lesMateriaux
+     */
+    public function removeLesMateriaux(\ZeldaBundle\Entity\Materiau $lesMateriaux)
+    {
+        $this->lesMateriaux->removeElement($lesMateriaux);
+    }
+
+    /**
+     * Get lesMateriaux
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLesMateriaux()
+    {
+        return $this->lesMateriaux;
+    }
+}

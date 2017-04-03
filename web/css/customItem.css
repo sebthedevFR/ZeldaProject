@@ -16,6 +16,12 @@ h1, p, li, h3, a, .smalltext{
 p, li {
     font-size: medium;
 }
+.heart {
+    display: inline-block;
+    vertical-align: middle;
+
+
+}
 
 li {
     list-style-type:none;

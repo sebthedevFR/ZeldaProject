@@ -41,6 +41,13 @@ class Recette
     private $lesEffets;
 
     /**
+     * @var float
+     *
+     * @ORM\Column(name="energie", type="float")
+     */
+    private $energie;
+
+    /**
      * @ORM\ManyToMany (targetEntity="ZeldaBundle\Entity\Materiau", cascade={"persist"})
      */
     private $lesMateriaux;

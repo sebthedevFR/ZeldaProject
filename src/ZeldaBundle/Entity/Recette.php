@@ -41,6 +41,13 @@ class Recette
     private $lesEffets;
 
     /**
+     * @var float
+     *
+     * @ORM\Column(name="energie", type="float")
+     */
+    private $energie;
+
+    /**
      * @ORM\ManyToMany (targetEntity="ZeldaBundle\Entity\Materiau", cascade={"persist"})
      */
     private $lesMateriaux;
@@ -178,5 +185,29 @@ class Recette
     public function getLesMateriaux()
     {
         return $this->lesMateriaux;
+    }
+
+    /**
+     * Set energie
+     *
+     * @param float $energie
+     *
+     * @return Recette
+     */
+    public function setEnergie($energie)
+    {
+        $this->energie = $energie;
+
+        return $this;
+    }
+
+    /**
+     * Get energie
+     *
+     * @return float
+     */
+    public function getEnergie()
+    {
+        return $this->energie;
     }
 }

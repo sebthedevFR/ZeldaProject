@@ -19,7 +19,5 @@ zelda_monstre:
                 id: \d+
 
 zelda_categorieMonstre:
-    path:     /monstreCateg/{id}
-    defaults: { _controller: ZeldaBundle:Zelda:afficherMonstreCateg, id: 1 }
-    requirements:
-                id: \d+
+    path:     /monstreCateg
+    defaults: { _controller: ZeldaBundle:Zelda:afficherMonstreCateg}

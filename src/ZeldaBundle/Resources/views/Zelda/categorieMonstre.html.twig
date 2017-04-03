@@ -1,25 +1,41 @@
-{% extends "ZeldaBundle::layout.html.twig" %}
-{% block title %}Categorie des Monstres{% endblock %}
+{% extends "@Zelda/layout.html.twig" %}
+{% block title %}Categorie Monstre{% endblock %}
 {% block pageContent %}
-
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">{% block pageHeaderMain %}{{ laCategMonstre.libelle }}{% endblock %}
-                <small>{% block pageHeaderSecondary %}{% endblock %}</small>
-            </h1>
+    <header class="jumbotron hero-spacer headerIndex">
+        <h1>Monstres</h1>
+        <p>Découvrez tous les Monstres de Zelda Breath of the Wild, où les trouver leur puissance et leurs effets de base, tels qu'ils sont notés dans l'encyclopédie d'Hyrule in-game.</p>
+    </header>
+    <hr>
+    <div class="text-center breadcrumb">
+        <div class="row">
+            <div class="controls">
+                {% for categ in lesCategMonstre %}
+                    <button class="filter btn-filter btn btn-primary btn-lg" data-filter=".{{ categ.libelleNoEspaceMonstre }}">{{ categ.libelle }}</button>
+                {% endfor %}
+            </div>
         </div>
     </div>
-    <!-- Projects Row -->
-    <div class="row">
-        {% for monstres in lesMonstres %}
-            <div class="col-md-2 portfolio-item">
-                <a href="{{ path('zelda_monstre', {'id': monstres.id}) }}">
-                    <img class="img-responsive" src="{{ monstres.vignetteUrl }}" alt="" width="700" height="400">
-                </a>
-                <h4>
-                    <a href="{{ path('zelda_monstre', {'id': monstres.id}) }}">{{ monstres.libelle }}</a>
-                </h4>
-            </div>
-        {% endfor %}
+
+    <div class="container-fluid">
+        <div class="row no-gutter" id="conteneur">
+            {% for monstre in lesMonstres %}
+                <div class="col-md-2 portfolio-item mix {{ monstre.laCategorieMonstre.libelleNoEspaceMonstre }}">
+                    <a href="{{ path('zelda_monstre', {'id': monstre.id}) }}">
+                        <img class="img-responsive" src="{{ monstre.vignetteUrl }}" alt="" width="700" height="400">
+                    </a>
+                    <h4>
+                        <a href="{{ path('zelda_monstre', {'id': monstre.id}) }}">{{ monstre.libelle }}</a>
+                    </h4>
+                </div>
+            {% endfor %}
+        </div>
     </div>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script>
+        $(function () {
+            $('#conteneur').mixItUp();
+        });
+    </script>
 {% endblock %}

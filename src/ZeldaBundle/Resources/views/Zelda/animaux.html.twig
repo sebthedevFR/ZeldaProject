@@ -4,13 +4,13 @@
     {{ parent() }}
     <link type="text/css" href="{{ asset('css/customItem.css') }}" rel="stylesheet">
 {% endblock %}
-{% block title %}{{ unMonstre.libelle }}{% endblock %}
+{% block title %}{{ leAnimal.libelle }}{% endblock %}
 {% block pageContent %}
     <!-- Portfolio Item Heading -->
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">{{ unMonstre.libelle }}
-                <small>{{ unMonstre.numeroIg }}</small>
+            <h1 class="page-header">{{ leAnimal.libelle }}
+                <small>{{ leAnimal.numeroIg }}</small>
             </h1>
         </div>
     </div>
@@ -20,14 +20,14 @@
     <div class="row">
 
         <div class="col-md-8">
-            <img class="img-responsive" src="{{ unMonstre.vignetteUrl }}" alt="">
+            <img class="img-responsive" src="{{ leAnimal.vignetteUrl }}" alt="">
 
         </div>
 
         <div class="col-md-4">
             <h3>Caractéristiques </h3>
-            <p>{{ unMonstre.description }}</p>
-            {% if unMonstre.getLesLieux() is empty %}
+            <p>{{ leAnimal.description }}</p>
+            {% if leAnimal.getLesLieux() is empty %}
                 <h3>Principaux lieux de disponibilité</h3>
                 <ul>
                     <li>Inconnu</li>
@@ -35,7 +35,7 @@
             {% else %}
                 <h3>Principaux lieux de disponibilité</h3>
                 <ul>
-                    {% for lieu in unMonstre.getLesLieux() %}
+                    {% for lieu in leAnimal.getLesLieux() %}
                         <li>{{ lieu.getLibelle() }}</li>
                     {% endfor %}
                 </ul>
@@ -44,13 +44,13 @@
     </div>
     <!-- /.row -->
 
-    {% if unMonstre.getLesImages() is empty %}
+    {% if leAnimal.getLesImages() is empty %}
     {% else %}
         <div class="row">
             <div class="col-lg-12">
                 <h3 class="page-header">Images</h3>
             </div>
-            {% for images in unMonstre.getLesImages() %}
+            {% for images in leAnimal.getLesImages() %}
                 <div class="col-sm-3 col-xs-6">
                     <a href="{{ images.url }}">
                         <img class="img-responsive portfolio-item" src="{{ images.url }}" alt="{{ images.alt }}">
@@ -65,13 +65,13 @@
         <div class="col-lg-12">
             <h3 class="page-header">Autres monstres.</h3>
         </div>
-        {% for unMonstres in lesMonstres %}
+        {% for unAnimal in lesAnimaux %}
             <div class="col-sm-1 col-xs-2">
-                <a href="{{  path('zelda_monstre', {'id': unMonstres.id}) }}" >
-                    <img class="img-responsive" src="{{ unMonstres.vignetteUrl }}" alt="" width="100" height="100">
+                <a href="{{  path('zelda_animaux', {'id': unAnimal.id}) }}" >
+                    <img class="img-responsive" src="{{ unAnimal.vignetteUrl }}" alt="" width="100" height="100">
                 </a>
                 <h4>
-                    <a href="{{ path('zelda_monstre', {'id': unMonstres.id}) }}">{{ unMonstres.libelle }}</a>
+                    <a href="{{ path('zelda_animaux', {'id': unAnimal.id}) }}">{{ unAnimal.libelle }}</a>
                 </h4>
             </div>
         {% endfor %}

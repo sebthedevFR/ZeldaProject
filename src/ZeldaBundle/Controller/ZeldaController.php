@@ -94,4 +94,29 @@ class ZeldaController extends Controller
 
         return $this->render('ZeldaBundle:Zelda:materiau.html.twig', array('leMateriau'=>$leMateriau, 'lesCateg'=>$lesCateg));
     }
+
+    public  function afficherAnimalCategAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $animauxRepository = $em->getRepository('ZeldaBundle:Animaux');
+        $lesAnimaux = $animauxRepository->findAll();
+
+        $em = $this->getDoctrine()->getManager();
+        $categRepository = $em->getRepository('ZeldaBundle:CategorieAnimaux');
+        $lesCategAnimaux = $categRepository->findAll();
+        return $this->render('ZeldaBundle:Zelda:categorieAnimaux.html.twig', array('lesAnimaux'=>$lesAnimaux, 'lesCategAnimaux'=>$lesCategAnimaux));
+    }
+
+    public  function  afficherAnimalAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $animauxRepository = $em->getRepository('ZeldaBundle:Animaux');
+        $leAnimal = $animauxRepository->find($id);
+
+        $em = $this->getDoctrine()->getManager();
+        $lesAnimauxRepository = $em->getRepository('ZeldaBundle:Animaux');
+        $lesAnimaux = $lesAnimauxRepository->findAll();
+
+        return $this->render('ZeldaBundle:Zelda:animaux.html.twig', array('leAnimal'=>$leAnimal,'lesAnimaux'=>$lesAnimaux));
+    }
 }

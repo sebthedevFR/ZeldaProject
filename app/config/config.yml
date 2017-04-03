@@ -79,6 +79,7 @@ easy_admin:
                  - { name: 'edit', icon: 'pencil', label: ''  }
                  - { name: 'delete', icon: 'remove', label: ''  }
     entities:
+        - ZeldaBundle\Entity\Animaux
         - ZeldaBundle\Entity\Arme
         - ZeldaBundle\Entity\Monstre
         - ZeldaBundle\Entity\Materiau
@@ -89,4 +90,5 @@ easy_admin:
         - ZeldaBundle\Entity\Categorie
         - ZeldaBundle\Entity\CategorieMonstre
         - ZeldaBundle\Entity\CategorieMateriau
+        - ZeldaBundle\Entity\CategorieAnimaux
 

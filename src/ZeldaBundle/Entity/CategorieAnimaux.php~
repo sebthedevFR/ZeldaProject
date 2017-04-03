@@ -73,4 +73,28 @@ class CategorieAnimaux
     {
         return $this->libelle;
     }
+
+    /**
+     * Set libelleNoEspaceAnimaux
+     *
+     * @param string $libelleNoEspaceAnimaux
+     *
+     * @return CategorieAnimaux
+     */
+    public function setLibelleNoEspaceAnimaux($libelleNoEspaceAnimaux)
+    {
+        $this->libelleNoEspaceAnimaux = $libelleNoEspaceAnimaux;
+
+        return $this;
+    }
+
+    /**
+     * Get libelleNoEspaceAnimaux
+     *
+     * @return string
+     */
+    public function getLibelleNoEspaceAnimaux()
+    {
+        return $this->libelleNoEspaceAnimaux;
+    }
 }

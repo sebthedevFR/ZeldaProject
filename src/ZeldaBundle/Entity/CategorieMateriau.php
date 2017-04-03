@@ -5,12 +5,12 @@ namespace ZeldaBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Effet
+ * CategorieMateriau
  *
- * @ORM\Table(name="effet")
- * @ORM\Entity(repositoryClass="ZeldaBundle\Repository\EffetRepository")
+ * @ORM\Table(name="categorie_materiau")
+ * @ORM\Entity(repositoryClass="ZeldaBundle\Repository\CategorieMateriauRepository")
  */
-class Effet
+class CategorieMateriau
 {
     /**
      * @var int
@@ -31,9 +31,9 @@ class Effet
     /**
      * @var string
      *
-     * @ORM\Column(name="iconUrl", type="string", length=255)
+     * @ORM\Column(name="libellenoespace", type="string", length=255)
      */
-    private $iconUrl;
+    private $libellenoespace;
 
 
     /**
@@ -51,7 +51,7 @@ class Effet
      *
      * @param string $libelle
      *
-     * @return Effet
+     * @return CategorieMateriau
      */
     public function setLibelle($libelle)
     {
@@ -71,27 +71,27 @@ class Effet
     }
 
     /**
-     * Set iconUrl
+     * Set libellenoespace
      *
-     * @param string $iconUrl
+     * @param string $libellenoespace
      *
-     * @return Effet
+     * @return CategorieMateriau
      */
-    public function setIconUrl($iconUrl)
+    public function setLibellenoespace($libellenoespace)
     {
-        $this->iconUrl = $iconUrl;
+        $this->libellenoespace = $libellenoespace;
 
         return $this;
     }
 
     /**
-     * Get iconUrl
+     * Get libellenoespace
      *
      * @return string
      */
-    public function getIconUrl()
+    public function getLibellenoespace()
     {
-        return $this->iconUrl;
+        return $this->libellenoespace;
     }
 
     public function __toString()

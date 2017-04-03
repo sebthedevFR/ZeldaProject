@@ -74,4 +74,28 @@ class CategorieMonstre
     {
         return $this->libelle;
     }
+
+    /**
+     * Set libelleNoEspaceMonstre
+     *
+     * @param string $libelleNoEspaceMonstre
+     *
+     * @return CategorieMonstre
+     */
+    public function setLibelleNoEspaceMonstre($libelleNoEspaceMonstre)
+    {
+        $this->libelleNoEspaceMonstre = $libelleNoEspaceMonstre;
+
+        return $this;
+    }
+
+    /**
+     * Get libelleNoEspaceMonstre
+     *
+     * @return string
+     */
+    public function getLibelleNoEspaceMonstre()
+    {
+        return $this->libelleNoEspaceMonstre;
+    }
 }

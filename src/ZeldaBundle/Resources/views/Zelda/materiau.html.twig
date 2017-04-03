@@ -1,0 +1,70 @@
+{% extends "ZeldaBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link type="text/css" href="{{ asset('css/customItem.css') }}" rel="stylesheet">
+{% endblock %}
+{% block title %}{{ leMateriau.libelle }}{% endblock %}
+{% block pageContent %}
+        <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">{{ leMateriau.libelle }}
+                    <small class="smalltext">{{ leMateriau.numeroIg }}</small>
+                </h1>
+            </div>
+        </div>
+
+        <!-- Portfolio Item Row -->
+        <div class="row ">
+            <div class="col-md-6" align="center" >
+                <img class="img-responsive vignette" src="{{ leMateriau.vignetteUrl }}" alt="">
+
+            </div>
+            <div class="col-md-4">
+                <h3 align="center">Caractéristiques </h3>
+                <p align="justify"><i>{{ leMateriau.description }}</i></p>
+                {% if leMateriau.getLesLieux() is empty %}
+                    <h3 align="center">Principaux lieux de disponibilité</h3>
+                    <ul>
+                        <li>Inconnu</li>
+                    </ul>
+                {% else %}
+                    <h3 align="center">Principaux lieux de disponibilité</h3>
+                    <ul>
+                        {% for lieu in leMateriau.getLesLieux() %}
+                            <li>{{ lieu.getLibelle() }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <h3 align="center">Efficacité</h3>
+                <p>{{ leMateriau.energie }}</p>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <!-- /.row -->
+
+
+        <div class="row ">
+            <div class="col-lg-12">
+                <h3 class="page-header">Autres materiaux.</h3>
+            </div>
+            {% for leMateriau in lesCateg %}
+            <div class="col-sm-1 col-xs-2">
+                <a href="{{  path('zelda_item', {'id': leMateriau.id}) }}" >
+                    <img class="img-responsive" src="{{ leMateriau.vignetteUrl }}" alt="" width="100" height="100">
+                </a>
+                <h4>
+                    <a href="{{ path('zelda_item', {'id': leMateriau.id}) }}">{{ leMateriau.libelle }}</a>
+                </h4>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- /.row -->
+
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script>
+    </script>
+{% endblock %}

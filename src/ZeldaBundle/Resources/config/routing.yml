@@ -31,3 +31,13 @@ zelda_materiau:
 zelda_categorieMat:
     path:     /matCateg
     defaults: { _controller: ZeldaBundle:Zelda:afficherMatCateg}
+
+zelda_categorieAnimaux:
+    path:     /animauxCateg
+    defaults: { _controller: ZeldaBundle:Zelda:afficherAnimalCateg}
+
+zelda_animaux:
+    path:     /animaux/{id}
+    defaults: { _controller: ZeldaBundle:Zelda:afficherAnimal, id: 1}
+    requirements:
+                id: \d+

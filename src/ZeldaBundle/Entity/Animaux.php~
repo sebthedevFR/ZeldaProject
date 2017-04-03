@@ -294,4 +294,28 @@ class Animaux
     {
         return $this->lesMateriaux;
     }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Animaux
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 }

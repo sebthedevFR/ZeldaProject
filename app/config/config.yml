@@ -82,9 +82,11 @@ easy_admin:
         - ZeldaBundle\Entity\Arme
         - ZeldaBundle\Entity\Monstre
         - ZeldaBundle\Entity\Materiau
+        - ZeldaBundle\Entity\Recette
         - ZeldaBundle\Entity\Image
         - ZeldaBundle\Entity\Lieu
         - ZeldaBundle\Entity\Effet
         - ZeldaBundle\Entity\Categorie
         - ZeldaBundle\Entity\CategorieMonstre
+        - ZeldaBundle\Entity\CategorieMateriau
 

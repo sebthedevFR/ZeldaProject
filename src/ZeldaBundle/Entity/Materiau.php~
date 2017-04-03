@@ -66,6 +66,11 @@ class Materiau
      */
     private $lesEffets;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="ZeldaBundle\Entity\CategorieMateriau")
+     */
+    private $laCategorieMateriau;
+
 
     /**
      * Get id
@@ -271,5 +276,29 @@ class Materiau
     public function getLesEffets()
     {
         return $this->lesEffets;
+    }
+
+    /**
+     * Set laCategorieMateriau
+     *
+     * @param \ZeldaBundle\Entity\CategorieMateriau $laCategorieMateriau
+     *
+     * @return Materiau
+     */
+    public function setLaCategorieMateriau(\ZeldaBundle\Entity\CategorieMateriau $laCategorieMateriau = null)
+    {
+        $this->laCategorieMateriau = $laCategorieMateriau;
+
+        return $this;
+    }
+
+    /**
+     * Get laCategorieMateriau
+     *
+     * @return \ZeldaBundle\Entity\CategorieMateriau
+     */
+    public function getLaCategorieMateriau()
+    {
+        return $this->laCategorieMateriau;
     }
 }

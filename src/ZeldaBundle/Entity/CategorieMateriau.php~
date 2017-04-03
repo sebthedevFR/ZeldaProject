@@ -93,4 +93,9 @@ class CategorieMateriau
     {
         return $this->libellenoespace;
     }
+
+    public function __toString()
+    {
+        return $this->libelle;
+    }
 }

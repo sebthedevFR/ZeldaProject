@@ -93,4 +93,9 @@ class Effet
     {
         return $this->iconUrl;
     }
+
+    public function __toString()
+    {
+        return $this->libelle;
+    }
 }

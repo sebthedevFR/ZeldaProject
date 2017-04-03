@@ -301,4 +301,9 @@ class Materiau
     {
         return $this->laCategorieMateriau;
     }
+
+    public function __toString()
+    {
+        return $this->libelle;
+    }
 }

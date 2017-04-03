@@ -28,6 +28,13 @@ class CategorieMonstre
      */
     private $libelle;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="libelleNoEspaceMonstre", type="string", length=255)
+     */
+    private $libelleNoEspaceMonstre;
+
 
     /**
      * Get id

@@ -65,4 +65,33 @@ class ZeldaController extends Controller
 
         return $this->render('ZeldaBundle:Zelda:monstre.html.twig', array('unMonstre'=>$unMonstre, 'lesMonstres'=>$listMonstres));
     }
+
+    public function afficherMatCategAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $materiauRepository = $em->getRepository('ZeldaBundle:Materiau');
+        $lesMateriaux= $materiauRepository->findAll();
+
+
+        $em=$this->getDoctrine()->getManager();
+        $categRepository = $em->getRepository('ZeldaBundle:CategorieMateriau');
+        $lesCateg = $categRepository->findAll();
+
+
+        return $this->render('ZeldaBundle:Zelda:categorieMateriau.html.twig', array('lesMateriaux'=>$lesMateriaux, 'lesCateg'=>$lesCateg));
+    }
+
+    public function afficherMatAction($id)
+    {
+
+        $em=$this->getDoctrine()->getManager();
+        $materiauRepository = $em->getRepository('ZeldaBundle:Materiau');
+        $leMateriau= $materiauRepository->find($id);
+
+        $em=$this->getDoctrine()->getManager();
+        $categRepository = $em->getRepository('ZeldaBundle:Materiau');
+        $lesCateg = $categRepository->findAll();
+
+        return $this->render('ZeldaBundle:Zelda:materiau.html.twig', array('leMateriau'=>$leMateriau, 'lesCateg'=>$lesCateg));
+    }
 }

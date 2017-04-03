@@ -5,12 +5,12 @@ namespace ZeldaBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Effet
+ * Recette
  *
- * @ORM\Table(name="effet")
- * @ORM\Entity(repositoryClass="ZeldaBundle\Repository\EffetRepository")
+ * @ORM\Table(name="recette")
+ * @ORM\Entity(repositoryClass="ZeldaBundle\Repository\RecetteRepository")
  */
-class Effet
+class Recette
 {
     /**
      * @var int
@@ -31,9 +31,19 @@ class Effet
     /**
      * @var string
      *
-     * @ORM\Column(name="iconUrl", type="string", length=255)
+     * @ORM\Column(name="vignetteUrl", type="string", length=255)
      */
-    private $iconUrl;
+    private $vignetteUrl;
+
+    /**
+     * @ORM\ManyToMany (targetEntity="ZeldaBundle\Entity\Effet", cascade={"persist"})
+     */
+    private $lesEffets;
+
+    /**
+     * @ORM\ManyToMany (targetEntity="ZeldaBundle\Entity\Materiau", cascade={"persist"})
+     */
+    private $lesMateriaux;
 
 
     /**
@@ -51,7 +61,7 @@ class Effet
      *
      * @param string $libelle
      *
-     * @return Effet
+     * @return Recette
      */
     public function setLibelle($libelle)
     {
@@ -71,31 +81,26 @@ class Effet
     }
 
     /**
-     * Set iconUrl
+     * Set vignetteUrl
      *
-     * @param string $iconUrl
+     * @param string $vignetteUrl
      *
-     * @return Effet
+     * @return Recette
      */
-    public function setIconUrl($iconUrl)
+    public function setVignetteUrl($vignetteUrl)
     {
-        $this->iconUrl = $iconUrl;
+        $this->vignetteUrl = $vignetteUrl;
 
         return $this;
     }
 
     /**
-     * Get iconUrl
+     * Get vignetteUrl
      *
      * @return string
      */
-    public function getIconUrl()
+    public function getVignetteUrl()
     {
-        return $this->iconUrl;
-    }
-
-    public function __toString()
-    {
-        return $this->libelle;
+        return $this->vignetteUrl;
     }
 }

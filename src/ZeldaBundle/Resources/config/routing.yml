@@ -21,3 +21,13 @@ zelda_monstre:
 zelda_categorieMonstre:
     path:     /monstreCateg
     defaults: { _controller: ZeldaBundle:Zelda:afficherMonstreCateg}
+
+zelda_materiau:
+    path:     /materiau/{id}
+    defaults: { _controller: ZeldaBundle:Zelda:afficherMat, id: 1 }
+    requirements:
+                id: \d+
+
+zelda_categorieMat:
+    path:     /matCateg
+    defaults: { _controller: ZeldaBundle:Zelda:afficherMatCateg}

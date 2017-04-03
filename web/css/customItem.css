@@ -17,9 +17,7 @@ p, li {
     font-size: medium;
 }
 .heart {
-    display: inline-block;
-    vertical-align: middle;
-
+    display: inline;
 
 }
 

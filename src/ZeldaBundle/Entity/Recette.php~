@@ -41,6 +41,13 @@ class Recette
     private $lesEffets;
 
     /**
+     * @var float
+     *
+     * @ORM\Column(name="energie", type="float")
+     */
+    private $energie;
+
+    /**
      * @ORM\ManyToMany (targetEntity="ZeldaBundle\Entity\Materiau", cascade={"persist"})
      */
     private $lesMateriaux;
@@ -102,5 +109,81 @@ class Recette
     public function getVignetteUrl()
     {
         return $this->vignetteUrl;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->lesEffets = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->lesMateriaux = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add lesEffet
+     *
+     * @param \ZeldaBundle\Entity\Effet $lesEffet
+     *
+     * @return Recette
+     */
+    public function addLesEffet(\ZeldaBundle\Entity\Effet $lesEffet)
+    {
+        $this->lesEffets[] = $lesEffet;
+
+        return $this;
+    }
+
+    /**
+     * Remove lesEffet
+     *
+     * @param \ZeldaBundle\Entity\Effet $lesEffet
+     */
+    public function removeLesEffet(\ZeldaBundle\Entity\Effet $lesEffet)
+    {
+        $this->lesEffets->removeElement($lesEffet);
+    }
+
+    /**
+     * Get lesEffets
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLesEffets()
+    {
+        return $this->lesEffets;
+    }
+
+    /**
+     * Add lesMateriaux
+     *
+     * @param \ZeldaBundle\Entity\Materiau $lesMateriaux
+     *
+     * @return Recette
+     */
+    public function addLesMateriaux(\ZeldaBundle\Entity\Materiau $lesMateriaux)
+    {
+        $this->lesMateriaux[] = $lesMateriaux;
+
+        return $this;
+    }
+
+    /**
+     * Remove lesMateriaux
+     *
+     * @param \ZeldaBundle\Entity\Materiau $lesMateriaux
+     */
+    public function removeLesMateriaux(\ZeldaBundle\Entity\Materiau $lesMateriaux)
+    {
+        $this->lesMateriaux->removeElement($lesMateriaux);
+    }
+
+    /**
+     * Get lesMateriaux
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLesMateriaux()
+    {
+        return $this->lesMateriaux;
     }
 }

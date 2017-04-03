@@ -37,8 +37,15 @@
                         {% endfor %}
                     </ul>
                 {% endif %}
-                <h3 align="center">Efficacité</h3>
-                <p>{{ leMateriau.energie }}</p>
+                <h3 align="center">Energie vitale restaurée</h3>
+                {% if leMateriau.energie == 0.5 %}
+                    <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers05TRANS.png') }}">
+                {% elseif leMateriau.energie == 1 %}
+                    <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+                {% elseif leMateriau.energie == 1.5 %}
+                    <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+                    <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers05TRANS.png') }}">
+                {% endif %}
             </div>
             <div class="col-md-2"></div>
         </div>

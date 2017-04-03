@@ -186,4 +186,28 @@ class Recette
     {
         return $this->lesMateriaux;
     }
+
+    /**
+     * Set energie
+     *
+     * @param float $energie
+     *
+     * @return Recette
+     */
+    public function setEnergie($energie)
+    {
+        $this->energie = $energie;
+
+        return $this;
+    }
+
+    /**
+     * Get energie
+     *
+     * @return float
+     */
+    public function getEnergie()
+    {
+        return $this->energie;
+    }
 }

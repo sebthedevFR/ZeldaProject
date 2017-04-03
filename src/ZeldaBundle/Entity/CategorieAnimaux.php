@@ -5,12 +5,12 @@ namespace ZeldaBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Effet
+ * CategorieAnimaux
  *
- * @ORM\Table(name="effet")
- * @ORM\Entity(repositoryClass="ZeldaBundle\Repository\EffetRepository")
+ * @ORM\Table(name="categorie_animaux")
+ * @ORM\Entity(repositoryClass="ZeldaBundle\Repository\CategorieAnimauxRepository")
  */
-class Effet
+class CategorieAnimaux
 {
     /**
      * @var int
@@ -31,9 +31,9 @@ class Effet
     /**
      * @var string
      *
-     * @ORM\Column(name="iconUrl", type="string", length=255)
+     * @ORM\Column(name="libelleNoEspaceAnimaux", type="string", length=255)
      */
-    private $iconUrl;
+    private $libelleNoEspaceAnimaux;
 
 
     /**
@@ -51,7 +51,7 @@ class Effet
      *
      * @param string $libelle
      *
-     * @return Effet
+     * @return CategorieAnimaux
      */
     public function setLibelle($libelle)
     {
@@ -69,33 +69,32 @@ class Effet
     {
         return $this->libelle;
     }
+    public function __toString()
+    {
+        return $this->libelle;
+    }
 
     /**
-     * Set iconUrl
+     * Set libelleNoEspaceAnimaux
      *
-     * @param string $iconUrl
+     * @param string $libelleNoEspaceAnimaux
      *
-     * @return Effet
+     * @return CategorieAnimaux
      */
-    public function setIconUrl($iconUrl)
+    public function setLibelleNoEspaceAnimaux($libelleNoEspaceAnimaux)
     {
-        $this->iconUrl = $iconUrl;
+        $this->libelleNoEspaceAnimaux = $libelleNoEspaceAnimaux;
 
         return $this;
     }
 
     /**
-     * Get iconUrl
+     * Get libelleNoEspaceAnimaux
      *
      * @return string
      */
-    public function getIconUrl()
+    public function getLibelleNoEspaceAnimaux()
     {
-        return $this->iconUrl;
-    }
-
-    public function __toString()
-    {
-        return $this->libelle;
+        return $this->libelleNoEspaceAnimaux;
     }
 }

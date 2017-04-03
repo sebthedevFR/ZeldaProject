@@ -1,0 +1,41 @@
+{% extends "@Zelda/layout.html.twig" %}
+{% block title %}Categorie Animaux{% endblock %}
+{% block pageContent %}
+    <header class="jumbotron hero-spacer headerIndex">
+        <h1>Animaux</h1>
+        <p>Découvrez tous les Animaux de Zelda Breath of the Wild, où les trouver , tels qu'ils sont notés dans l'encyclopédie d'Hyrule in-game.</p>
+    </header>
+    <hr>
+    <div class="text-center breadcrumb">
+        <div class="row">
+            <div class="controls">
+                {% for categ in lesCategAnimaux %}
+                    <button class="filter btn-filter btn btn-primary btn-lg" data-filter=".{{ categ.libelleNoEspaceAnimaux }}">{{ categ.libelle }}</button>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row no-gutter" id="conteneur">
+            {% for animal in lesAnimaux %}
+                <div class="col-md-2 portfolio-item mix {{ animal.laCategorieAnimaux.libelleNoEspaceAnimaux }}">
+                    <a href="{{ path('zelda_animaux', {'id': animal.id}) }}">
+                        <img class="img-responsive" src="{{ animal.vignetteUrl }}" alt="" width="700" height="400">
+                    </a>
+                    <h4>
+                        <a href="{{ path('zelda_animaux', {'id': animal.id}) }}">{{ animal.libelle }}</a>
+                    </h4>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script>
+        $(function () {
+            $('#conteneur').mixItUp();
+        });
+    </script>
+{% endblock %}

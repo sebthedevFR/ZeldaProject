@@ -10,4 +10,12 @@ namespace ZeldaBundle\Repository;
  */
 class MateriauRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function lesAutresMateriaux($id)
+    {
+        $qb=$this->createQueryBuilder('p')
+            ->select('p')
+            ->where('p.id != :id')
+            ->setParameter("id",$id);
+        return $qb->getQuery()->getResult();
+    }
 }

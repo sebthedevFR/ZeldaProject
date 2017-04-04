@@ -55,15 +55,16 @@
             <div class="col-lg-12">
                 <h3 class="page-header">Autres materiaux.</h3>
             </div>
-            {% for leMateriau in lesCateg %}
-            <div class="col-sm-1 col-xs-2">
-                <a href="{{  path('zelda_item', {'id': leMateriau.id}) }}" >
-                    <img class="img-responsive" src="{{ leMateriau.vignetteUrl }}" alt="" width="100" height="100">
-                </a>
-                <h4>
-                    <a href="{{ path('zelda_item', {'id': leMateriau.id}) }}">{{ leMateriau.libelle }}</a>
-                </h4>
-            </div>
+
+            {% for leMateriau in lesAutresMateriaux %}
+                <div class="col-sm-1 col-xs-2">
+                    <a href="{{  path('zelda_item', {'id': leMateriau.id}) }}">
+                        <img class="img-responsive" src="{{ leMateriau.vignetteUrl }}" alt="" width="100" height="100" >
+                    </a>
+                    <h4>
+                        <a href="{{ path('zelda_item', {'id': leMateriau.id}) }}">{{ leMateriau.libelle }}</a>
+                    </h4>
+                </div>
             {% endfor %}
         </div>
         <!-- /.row -->

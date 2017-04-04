@@ -6,45 +6,40 @@
 {% endblock %}
 {% block title %}{{ uneArme.libelle }}{% endblock %}
 {% block pageContent %}
-        <!-- Portfolio Item Heading -->
-        <div class="row">
-            <div class="col-lg-6" align="center">
-                <h1 class="page-header">{{ uneArme.libelle }}
-                    <small class="smalltext">{{ uneArme.numeroIg }}</small>
-                </h1>
-            </div>
-
-            <div class="col-lg-6"></div>
+<br><br>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <h4 align="center">{{ uneArme.numeroIg }} {{ uneArme.libelle }}</h4>
+            <img class="img-responsive vignette" src="{{ uneArme.vignetteUrl }}" alt="">
         </div>
-    <br> <br>
-        <!-- Portfolio Item Row -->
-        <div class="row ">
-            <div class="col-md-6" align="center" >
-                <img class="img-responsive vignette" src="{{ uneArme.vignetteUrl }}" alt="">
-
-            </div>
-            <div class="col-md-6" align="center">
-                <h3>Caractéristiques </h3>
-                <p><i>{{ uneArme.description }}</i></p> <br>
-                {% if uneArme.getLesLieux() is empty %}
-                    <h3>Principaux lieux de disponibilité</h3>
-                    <ul>
-                        <li>Inconnu</li> <br>
-                    </ul>
-                {% else %}
-                    <h3>Principaux lieux de disponibilité</h3>
-                    <ul>
-                        {% for lieu in uneArme.getLesLieux() %}
-                            <li>{{ lieu.getLibelle() }}</li> <br>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-                <h3>Efficacité</h3>
-                <p>{{ uneArme.efficacite }}</p>
-            </div>
+        <div class="col-md-5">
+            <h3 align="center">Caractéristiques </h3>
+            <p><i>{{ uneArme.description }}</i></p> <br>
+            {% if uneArme.getLesLieux() is empty %}
+                <h3 align="center">Principaux lieux de disponibilité</h3>
+                <ul>
+                    <li>Inconnu</li><br>
+                </ul>
+            {% else %}
+                <h3 align="center">Principaux lieux de disponibilité</h3>
+                <ul>
+                    {% for lieu in uneArme.getLesLieux() %}
+                        <li>{{ lieu.getLibelle() }}</li> <br>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         </div>
-        <!-- /.row -->
-
+        <div class="col-md-2"></div>
+    </div>
+    <div align="center" class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-5">
+            <h3>Efficacité</h3>
+            <p>{{ uneArme.efficacite }}</p>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
         {% if uneArme.getLesImages() is empty %}
         {% else %}
         <div class="row">

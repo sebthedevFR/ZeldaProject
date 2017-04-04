@@ -15,7 +15,6 @@ body {
 }
 
 
-
 .btn {
      background-color: #0d6aad;
      /*box-shadow: 0 0 20px 1px #00a7d0;*/
@@ -39,7 +38,7 @@ div {
     background-color: white;
 }
 
-h1, h2, h3, a {
+h1, h2, h3, a, h4 {
     font-family: HyliaSerif;
 }
 

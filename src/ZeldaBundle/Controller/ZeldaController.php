@@ -91,8 +91,9 @@ class ZeldaController extends Controller
         $em=$this->getDoctrine()->getManager();
         $categRepository = $em->getRepository('ZeldaBundle:Materiau');
         $lesCateg = $categRepository->findAll();
+        $lesAutresMateriaux = $this->getDoctrine()->getRepository('ZeldaBundle:Materiau')->lesAutresMateriaux($id);
 
-        return $this->render('ZeldaBundle:Zelda:materiau.html.twig', array('leMateriau'=>$leMateriau, 'lesCateg'=>$lesCateg));
+        return $this->render('ZeldaBundle:Zelda:materiau.html.twig', array('leMateriau'=>$leMateriau, 'lesCateg'=>$lesCateg, 'lesAutresMateriaux'=>$lesAutresMateriaux));
     }
 
     public  function afficherAnimalCategAction()

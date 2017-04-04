@@ -1,5 +1,9 @@
 {% extends "@Zelda/layout.html.twig" %}
 {% block title %}Categorie Monstre{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link type="text/css" href="{{ asset('css/customCateg.css') }}" rel="stylesheet">
+{% endblock %}
 {% block pageContent %}
     <header class="jumbotron hero-spacer headerIndex">
         <h1>Monstres</h1>
@@ -9,9 +13,12 @@
     <div class="text-center breadcrumb">
         <div class="row">
             <div class="controls">
+                <button class="filter btn-filter btn btn-primary btn-lg"  data-filter="all">Tous</button>
                 {% for categ in lesCategMonstre %}
                     <button class="filter btn-filter btn btn-primary btn-lg" data-filter=".{{ categ.libelleNoEspaceMonstre }}">{{ categ.libelle }}</button>
                 {% endfor %}
+                <button class="filter btn-filter btn btn-primary btn-lg"  data-sort="name:asc">(A - Z)</button>
+                <button class="filter btn-filter btn btn-primary btn-lg"  data-sort="name:desc">(Z -A)</button>
             </div>
         </div>
     </div>
@@ -19,9 +26,9 @@
     <div class="container-fluid">
         <div class="row no-gutter" id="conteneur">
             {% for monstre in lesMonstres %}
-                <div class="col-md-2 portfolio-item mix {{ monstre.laCategorieMonstre.libelleNoEspaceMonstre }}">
+                <div class="col-sm-3 col-xs-5 mix {{ monstre.laCategorieMonstre.libelleNoEspaceMonstre }}" data-name="{{ monstre.libelle }}">
                     <a href="{{ path('zelda_monstre', {'id': monstre.id}) }}">
-                        <img class="img-responsive" src="{{ monstre.vignetteUrl }}" alt="" width="700" height="400">
+                        <img class="img-responsive thumbnail autre_projet" src="{{ monstre.vignetteUrl }}" alt="" width="700" height="400">
                     </a>
                     <h4>
                         <a href="{{ path('zelda_monstre', {'id': monstre.id}) }}">{{ monstre.libelle }}</a>

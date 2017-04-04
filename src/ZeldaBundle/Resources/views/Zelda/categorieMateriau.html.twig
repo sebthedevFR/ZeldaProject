@@ -1,5 +1,12 @@
 {% extends "@Zelda/layout.html.twig" %}
+
+
 {% block title %}Categorie Materiau{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link type="text/css" href="{{ asset('css/customCateg.css') }}" rel="stylesheet">
+{% endblock %}
 {% block pageContent %}
     <header class="jumbotron hero-spacer headerIndex">
         <h1>Materiaux</h1>
@@ -9,22 +16,25 @@
     <div class="text-center breadcrumb">
         <div class="row">
             <div class="controls">
+                   <button class="filter btn-filter btn btn-primary btn-lg"  data-filter="all">Tous</button>
                 {% for categ in lesCateg %}
                     <button class="filter btn-filter btn btn-primary btn-lg" data-filter=".{{ categ.libellenoespace }}">{{ categ.libelle }}</button>
                 {% endfor %}
+                    <button class="filter btn-filter btn btn-primary btn-lg"  data-sort="name:asc">(A - Z)</button>
+                    <button class="filter btn-filter btn btn-primary btn-lg"  data-sort="name:desc">(Z -A)</button>
             </div>
         </div>
     </div>
 
     <div class="container-fluid">
-        <div class="row no-gutter" id="conteneur">
+        <div class="row " id="conteneur">
             {% for materiau in lesMateriaux %}
-                <div class="col-md-2 portfolio-item mix {{ materiau.laCategorieMateriau.libellenoespace }}">
+                <div class="col-sm-3 col-xs-5 mix {{ materiau.laCategorieMateriau.libellenoespace }} " data-name="{{ materiau.libelle }}" >
                     <a href="{{ path('zelda_materiau', {'id': materiau.id}) }}">
-                        <img class="img-responsive" src="{{ materiau.vignetteUrl }}" alt="" width="700" height="400">
+                        <img class="img-responsive thumbnail autre_projet" src="{{ materiau.vignetteUrl }}" alt="">
                     </a>
                     <h4>
-                        <a href="{{ path('zelda_materiau', {'id': materiau.id}) }}">{{ materiau.libelle }}</a>
+                        <a href="{{ path('zelda_materiau', {'id': materiau.id}) }}">{{ materiau.libelle }} </a>
                     </h4>
                 </div>
             {% endfor %}

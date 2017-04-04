@@ -13,8 +13,10 @@ body {
     padding:0px;
 
 }
-
-
+.autre_projet{
+    height: 200px;
+    width: 250px;
+}
 
 .btn {
      background-color: #0d6aad;
@@ -29,17 +31,44 @@ body {
     border-radius: 15px;
 }
 
+h3.background {
+    position: relative;
+    z-index: 1;
+}
+h3:before
+{
+    border-top: 2px solid #00a7d0;
+    content:"";
+    margin: 0 auto; /* this centers the line to the full width specified */
+    position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+    top: 50%; left: 0; right: 0; bottom: 0;
+    width: 95%;
+    z-index: -1;
+
+}
+
+span
+{
+    /* to hide the lines from behind the text, you have to set the background color the same as the container */
+    background: #fff;
+    padding: 0 5px;
+}
 
 .btn:hover {
     background-color: #00a7d0;
     box-shadow: 0 0 20px 1px #0d6aad;
 }
 
+.customHeight {
+    height: 150px;
+    width: 150px;
+}
+
 div {
     background-color: white;
 }
 
-h1, h2, h3, a {
+h1, h2, h3, a, h4 {
     font-family: HyliaSerif;
 }
 

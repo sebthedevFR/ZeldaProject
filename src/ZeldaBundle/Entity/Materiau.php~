@@ -42,6 +42,7 @@ class Materiau
      */
     private $vignetteUrl;
 
+
     /**
      * @var float
      *
@@ -306,4 +307,6 @@ class Materiau
     {
         return $this->libelle;
     }
+
+
 }

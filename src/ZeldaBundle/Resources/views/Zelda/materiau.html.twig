@@ -1,69 +1,103 @@
 {% extends "ZeldaBundle::layout.html.twig" %}
-
 {% block stylesheets %}
     {{ parent() }}
     <link type="text/css" href="{{ asset('css/customItem.css') }}" rel="stylesheet">
 {% endblock %}
 {% block title %}{{ leMateriau.libelle }}{% endblock %}
 {% block pageContent %}
-        <!-- Portfolio Item Heading -->
-        <div class="row">
-            <div class="col-lg-6" align="center" >
-                <h1 class="page-header">{{ leMateriau.libelle }}
-                    <small class="smalltext">{{ leMateriau.numeroIg }}</small>
-                </h1>
-            </div>
+<br> <br>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <h3 align="center">{{ leMateriau.numeroIg }} {{ leMateriau.libelle }}</h3>
+            <br>
+            <img class="img-responsive vignette thumbnail" src="{{ leMateriau.vignetteUrl }}" alt="">
         </div>
-        <br> <br>
-        <!-- Portfolio Item Row -->
-        <div class="row ">
-            <div class="col-md-6" align="center" >
-                <img class="img-responsive vignette" src="{{ leMateriau.vignetteUrl }}" alt=""> <br>
-
-            </div>
-            <div class="col-md-6" align="center">
-                <h3>Caractéristiques </h3>
-                <p><i>{{ leMateriau.description }}</i></p> <br>
-                {% if leMateriau.getLesLieux() is empty %}
-                    <h3>Principaux lieux de disponibilité</h3>
-                    <ul>
-                        <li>Inconnu</li> <br>
-                    </ul>
-                {% else %}
-                    <h3>Principaux lieux de disponibilité</h3>
-                    <ul>
-                        {% for lieu in leMateriau.getLesLieux() %}
-                            <li>{{ lieu.getLibelle() }}</li> <br>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-                <h3>Energie vitale restaurée</h3>
-                {% if leMateriau.energie == 0.5 %}
-                    <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers05TRANS.png') }}">
-                {% elseif leMateriau.energie == 1 %}
-                    <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
-                {% elseif leMateriau.energie == 1.5 %}
-                    <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
-                    <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers05TRANS.png') }}">
-                {% endif %}
-            </div>
+        <div class="col-md-5">
+            <h3 align="center" class="background"><span>Caractéristiques</span></h3>
+            <p><i>{{ leMateriau.description }}</i></p> <br>
+            {% if leMateriau.getLesLieux() is empty %}
+                <h3>Principaux lieux de disponibilité</h3>
+                <ul>
+                    <li>Inconnu</li> <br>
+                </ul>
+            {% else %}
+                <h3 align="center" class="background"><span>Principaux lieux de disponibilité</span></h3>
+                <ul>
+                    {% for lieu in leMateriau.getLesLieux() %}
+                        <li>{{ lieu.getLibelle() }}</li> <br>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         </div>
-        <!-- /.row -->
-
+        <div class="col-md-2"></div>
+    </div>
+    <div align="center" class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <h3 align="center" class="background"> <span> Effet une fois cuisiné </span></h3>
+            {% if leMateriau.lesEffets is not empty %}
+                    {% for effet in leMateriau.lesEffets %}
+                        {% if effet.libelle == "Cœurs Max" %}
+                            <p><img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1GOLD.png') }}">
+                            {{ effet.libelle }}</p>
+                        {% else %}
+                            <p>A remplir avec d'autre effet</p>
+                        {% endif %}
+                    {% endfor %}
+            {% else %}
+                <p>Aucun.</p>
+            {% endif %}
+        </div>
+        <div class="col-md-5">
+            <h3 align="center" class="background"> <span> Energie vitale restaurée </span></h3>
+            {% if leMateriau.energie == 0.5 %}
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers05TRANS.png') }}">
+            {% elseif leMateriau.energie == 1 %}
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+            {% elseif leMateriau.energie == 1.5 %}
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers05TRANS.png') }}">
+            {% elseif leMateriau.energie == 2 %}
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+            {% elseif leMateriau.energie == 2.5 %}
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers05TRANS.png') }}">
+            {% elseif leMateriau.energie == 3 %}
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+            {% elseif leMateriau.energie == 3.5 %}
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers05TRANS.png') }}">
+            {% elseif leMateriau.energie == 4 %}
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+                <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers1.png') }}">
+            {% endif %}
+        </div>
+        <div class="col-md-2"></div>
+    </div>
 
         <div class="row ">
             <div class="col-lg-12">
                 <h3 class="page-header">Autres materiaux.</h3>
             </div>
-            {% for leMateriau in lesCateg %}
-            <div class="col-sm-1 col-xs-2">
-                <a href="{{  path('zelda_item', {'id': leMateriau.id}) }}" >
-                    <img class="img-responsive" src="{{ leMateriau.vignetteUrl }}" alt="" width="100" height="100">
-                </a>
-                <h4>
-                    <a href="{{ path('zelda_item', {'id': leMateriau.id}) }}">{{ leMateriau.libelle }}</a>
-                </h4>
-            </div>
+
+            {% for leMateriau in lesAutresMateriaux %}
+                <div class="col-sm-2 col-xs-5">
+                    <a href="{{  path('zelda_materiau', {'id': leMateriau.id}) }}">
+                        <img class="thumbnail autre_projet" src="{{ leMateriau.vignetteUrl }}" alt=""  >
+                    </a>
+                    <h5>
+                        <a href="{{ path('zelda_materiau', {'id': leMateriau.id}) }}">{{ leMateriau.libelle }}</a>
+                    </h5>
+                </div>
             {% endfor %}
         </div>
         <!-- /.row -->

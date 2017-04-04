@@ -14,7 +14,6 @@ body {
 
 }
 
-
 .btn {
      background-color: #0d6aad;
      /*box-shadow: 0 0 20px 1px #00a7d0;*/
@@ -32,6 +31,11 @@ body {
 .btn:hover {
     background-color: #00a7d0;
     box-shadow: 0 0 20px 1px #0d6aad;
+}
+
+.customHeight {
+    height: 150px;
+    width: 150px;
 }
 
 div {

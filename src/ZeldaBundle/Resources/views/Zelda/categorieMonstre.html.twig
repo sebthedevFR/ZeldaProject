@@ -13,9 +13,12 @@
     <div class="text-center breadcrumb">
         <div class="row">
             <div class="controls">
+                <button class="filter btn-filter btn btn-primary btn-lg"  data-filter="all">Tous</button>
                 {% for categ in lesCategMonstre %}
                     <button class="filter btn-filter btn btn-primary btn-lg" data-filter=".{{ categ.libelleNoEspaceMonstre }}">{{ categ.libelle }}</button>
                 {% endfor %}
+                <button class="filter btn-filter btn btn-primary btn-lg"  data-sort="name:asc">(A - Z)</button>
+                <button class="filter btn-filter btn btn-primary btn-lg"  data-sort="name:desc">(Z -A)</button>
             </div>
         </div>
     </div>
@@ -23,7 +26,7 @@
     <div class="container-fluid">
         <div class="row no-gutter" id="conteneur">
             {% for monstre in lesMonstres %}
-                <div class="col-md-2 portfolio-item mix {{ monstre.laCategorieMonstre.libelleNoEspaceMonstre }}">
+                <div class="col-md-2 portfolio-item mix {{ monstre.laCategorieMonstre.libelleNoEspaceMonstre }}" data-name="{{ monstre.libelle }}">
                     <a href="{{ path('zelda_monstre', {'id': monstre.id}) }}">
                         <img class="img-responsive" src="{{ monstre.vignetteUrl }}" alt="" width="700" height="400">
                     </a>

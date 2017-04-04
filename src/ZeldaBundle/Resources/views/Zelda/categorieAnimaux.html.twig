@@ -13,9 +13,12 @@
     <div class="text-center breadcrumb">
         <div class="row">
             <div class="controls">
+                <button class="filter btn-filter btn btn-primary btn-lg"  data-filter="all">Tous</button>
                 {% for categ in lesCategAnimaux %}
                     <button class="filter btn-filter btn btn-primary btn-lg" data-filter=".{{ categ.libelleNoEspaceAnimaux }}">{{ categ.libelle }}</button>
                 {% endfor %}
+                <button class="filter btn-filter btn btn-primary btn-lg"  data-sort="name:asc">(A - Z)</button>
+                <button class="filter btn-filter btn btn-primary btn-lg"  data-sort="name:desc">(Z -A)</button>
             </div>
         </div>
     </div>
@@ -23,7 +26,7 @@
     <div class="container-fluid">
         <div class="row no-gutter" id="conteneur">
             {% for animal in lesAnimaux %}
-                <div class="col-md-2 portfolio-item mix {{ animal.laCategorieAnimaux.libelleNoEspaceAnimaux }}">
+                <div class="col-md-2 portfolio-item mix {{ animal.laCategorieAnimaux.libelleNoEspaceAnimaux }}" data-name="{{ animal.libelle }}">
                     <a href="{{ path('zelda_animaux', {'id': animal.id}) }}">
                         <img class="img-responsive" src="{{ animal.vignetteUrl }}" alt="" width="700" height="400">
                     </a>

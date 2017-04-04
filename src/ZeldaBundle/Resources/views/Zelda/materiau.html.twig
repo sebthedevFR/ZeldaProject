@@ -1,5 +1,4 @@
 {% extends "ZeldaBundle::layout.html.twig" %}
-
 {% block stylesheets %}
     {{ parent() }}
     <link type="text/css" href="{{ asset('css/customItem.css') }}" rel="stylesheet">
@@ -11,7 +10,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-3">
             <h4 align="center">{{ leMateriau.numeroIg }} {{ leMateriau.libelle }}</h4>
-            <img class="img-responsive vignette" src="{{ leMateriau.vignetteUrl }}" alt="">
+            <img class="img-responsive vignette thumbnail" src="{{ leMateriau.vignetteUrl }}" alt="">
         </div>
         <div class="col-md-5">
             <h3 align="center">Caractéristiques </h3>

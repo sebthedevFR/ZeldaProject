@@ -42,12 +42,6 @@ class Materiau
      */
     private $vignetteUrl;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="smallVignetteUrl", type="string", length=255)
-     */
-    private $smallVignetteUrl;
 
     /**
      * @var float
@@ -314,27 +308,5 @@ class Materiau
         return $this->libelle;
     }
 
-    /**
-     * Set smallVignetteUrl
-     *
-     * @param string $smallVignetteUrl
-     *
-     * @return Materiau
-     */
-    public function setSmallVignetteUrl($smallVignetteUrl)
-    {
-        $this->smallVignetteUrl = $smallVignetteUrl;
 
-        return $this;
-    }
-
-    /**
-     * Get smallVignetteUrl
-     *
-     * @return string
-     */
-    public function getSmallVignetteUrl()
-    {
-        return $this->smallVignetteUrl;
-    }
 }

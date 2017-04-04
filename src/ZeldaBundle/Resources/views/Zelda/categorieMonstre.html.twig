@@ -1,5 +1,9 @@
 {% extends "@Zelda/layout.html.twig" %}
 {% block title %}Categorie Monstre{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link type="text/css" href="{{ asset('css/customCateg.css') }}" rel="stylesheet">
+{% endblock %}
 {% block pageContent %}
     <header class="jumbotron hero-spacer headerIndex">
         <h1>Monstres</h1>

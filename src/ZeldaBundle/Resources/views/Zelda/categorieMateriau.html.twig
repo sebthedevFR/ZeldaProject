@@ -1,5 +1,12 @@
 {% extends "@Zelda/layout.html.twig" %}
+
+
 {% block title %}Categorie Materiau{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link type="text/css" href="{{ asset('css/customCateg.css') }}" rel="stylesheet">
+{% endblock %}
 {% block pageContent %}
     <header class="jumbotron hero-spacer headerIndex">
         <h1>Materiaux</h1>
@@ -19,9 +26,9 @@
     <div class="container-fluid">
         <div class="row no-gutter" id="conteneur">
             {% for materiau in lesMateriaux %}
-                <div class="col-md-2 portfolio-item mix {{ materiau.laCategorieMateriau.libellenoespace }}">
+                <div class="col-md-2 portfolio-item mix {{ materiau.laCategorieMateriau.libellenoespace }} " >
                     <a href="{{ path('zelda_materiau', {'id': materiau.id}) }}">
-                        <img class="img-responsive" src="{{ materiau.vignetteUrl }}" alt="" width="700" height="400">
+                        <img class="img-responsive customHeight" src="{{ materiau.vignetteUrl }}" alt="">
                     </a>
                     <h4>
                         <a href="{{ path('zelda_materiau', {'id': materiau.id}) }}">{{ materiau.libelle }}</a>

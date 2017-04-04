@@ -25,15 +25,15 @@
         </div>
 
         <div class="col-md-4">
-            <h3>Caractéristiques </h3>
+            <h3 align="center" class="background"><span>Caractéristiques</span></h3>
             <p>{{ leAnimal.description }}</p>
             {% if leAnimal.getLesLieux() is empty %}
-                <h3>Principaux lieux de disponibilité</h3>
+                <h3 align="center" class="background"><span>Principaux lieux de disponibilité</span></h3>
                 <ul>
                     <li>Inconnu</li>
                 </ul>
             {% else %}
-                <h3>Principaux lieux de disponibilité</h3>
+                <h3 align="center" class="background"><span>Principaux lieux de disponibilité</span></h3>
                 <ul>
                     {% for lieu in leAnimal.getLesLieux() %}
                         <li>{{ lieu.getLibelle() }}</li>

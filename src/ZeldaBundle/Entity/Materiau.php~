@@ -43,6 +43,13 @@ class Materiau
     private $vignetteUrl;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="smallVignetteUrl", type="string", length=255)
+     */
+    private $smallVignetteUrl;
+
+    /**
      * @var float
      *
      * @ORM\Column(name="energie", type="float")
@@ -70,6 +77,8 @@ class Materiau
      * @ORM\ManyToOne(targetEntity="ZeldaBundle\Entity\CategorieMateriau")
      */
     private $laCategorieMateriau;
+
+
 
 
     /**

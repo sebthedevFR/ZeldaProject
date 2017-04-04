@@ -30,7 +30,12 @@ body {
 .indexCateg {
     border-radius: 15px;
 }
-
+.image_efficacite{
+    display:inline-block;
+    width:16px;
+    height:16px;
+    margin-left:42%;
+}
 h3.background {
     position: relative;
     z-index: 1;

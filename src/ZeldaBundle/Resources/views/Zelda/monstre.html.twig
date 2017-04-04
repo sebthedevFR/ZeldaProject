@@ -25,15 +25,15 @@
         </div>
 
         <div class="col-md-4">
-            <h3>Caractéristiques </h3>
+            <h3 align="center" class="background"><span>Caractéristiques</span></h3>
             <p>{{ unMonstre.description }}</p>
             {% if unMonstre.getLesLieux() is empty %}
-                <h3>Principaux lieux de disponibilité</h3>
+                <h3 align="center" class="background"><span>Principaux lieux de disponibilité</span></h3>
                 <ul>
                     <li>Inconnu</li>
                 </ul>
             {% else %}
-                <h3>Principaux lieux de disponibilité</h3>
+                <h3 align="center" class="background"><span>Principaux lieux de disponibilité</span></h3>
                 <ul>
                     {% for lieu in unMonstre.getLesLieux() %}
                         <li>{{ lieu.getLibelle() }}</li>
@@ -63,7 +63,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h3 class="page-header">Autres monstres.</h3>
+            <h3 class="page-header">Autres monstres</h3>
         </div>
         {% for unMonstres in lesMonstres %}
             <div class="col-sm-1 col-xs-2">

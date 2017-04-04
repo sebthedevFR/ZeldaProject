@@ -18,6 +18,11 @@ body {
     width: 250px;
 }
 
+.bouton_custom
+{
+    margin-left:-5%;
+    display:inline;
+}
 .btn {
      background-color: #0d6aad;
      /*box-shadow: 0 0 20px 1px #00a7d0;*/

@@ -16,9 +16,12 @@
     <div class="text-center breadcrumb">
         <div class="row">
             <div class="controls">
+                   <button class="filter btn-filter btn btn-primary btn-lg"  data-filter="all">Tous</button>
                 {% for categ in lesCateg %}
                     <button class="filter btn-filter btn btn-primary btn-lg" data-filter=".{{ categ.libellenoespace }}">{{ categ.libelle }}</button>
                 {% endfor %}
+                    <button class="filter btn-filter btn btn-primary btn-lg"  data-sort="name:asc">(A - Z)</button>
+                    <button class="filter btn-filter btn btn-primary btn-lg"  data-sort="name:desc">(Z -A)</button>
             </div>
         </div>
     </div>
@@ -26,9 +29,9 @@
     <div class="container-fluid">
         <div class="row no-gutter" id="conteneur">
             {% for materiau in lesMateriaux %}
-                <div class="col-md-2 portfolio-item mix {{ materiau.laCategorieMateriau.libellenoespace }} " >
+                <div class="col-md-2 portfolio-item mix {{ materiau.laCategorieMateriau.libellenoespace }} " data-name="{{ materiau.libelle }}" >
                     <a href="{{ path('zelda_materiau', {'id': materiau.id}) }}">
-                        <img class="img-responsive customHeight" src="{{ materiau.vignetteUrl }}" alt="">
+                        <img class="img-responsive customHeight thumbnail" src="{{ materiau.vignetteUrl }}" alt="">
                     </a>
                     <h4>
                         <a href="{{ path('zelda_materiau', {'id': materiau.id}) }}">{{ materiau.libelle }}</a>

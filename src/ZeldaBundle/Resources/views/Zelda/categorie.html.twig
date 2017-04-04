@@ -9,9 +9,12 @@
     <div class="text-center breadcrumb">
         <div class="row">
             <div class="controls">
+                <button class="filter btn-filter btn btn-primary btn-lg"  data-filter="all">Tous</button>
                 {% for categ in lesCateg %}
                     <button class="filter btn-filter btn btn-primary btn-lg" data-filter=".{{ categ.libellenoespace }}">{{ categ.libelle }}</button>
                 {% endfor %}
+                <button class="filter btn-filter btn btn-primary btn-lg"  data-sort="name:asc">(A - Z)</button>
+                <button class="filter btn-filter btn btn-primary btn-lg"  data-sort="name:desc">(Z -A)</button>
             </div>
         </div>
     </div>
@@ -19,7 +22,7 @@
     <div class="container-fluid">
         <div class="row no-gutter" id="conteneur">
             {% for armes in lesArmes %}
-                <div class="col-md-2 portfolio-item mix {{ armes.laCategorie.libellenoespace }}">
+                <div class="col-md-2 portfolio-item mix {{ armes.laCategorie.libellenoespace }}" data-name="{{ armes.libelle }}">
                     <a href="{{ path('zelda_item', {'id': armes.id}) }}">
                         <img class="img-responsive" src="{{ armes.vignetteUrl }}" alt="" width="700" height="400">
                     </a>

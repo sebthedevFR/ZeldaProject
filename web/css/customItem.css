@@ -42,7 +42,7 @@ h3:before
 
 h1, p, li, h3, a, h4, .smalltext{
     color: #00a7d0;
-    text-shadow: 2px 2px 50px #0d6aad;
+    text-shadow: 5px 5px 20px #0d6aad;
 }
 
 p, li {

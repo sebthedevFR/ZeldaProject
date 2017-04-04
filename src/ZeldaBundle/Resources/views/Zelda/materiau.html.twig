@@ -8,13 +8,13 @@
 {% block pageContent %}
 <br> <br>
     <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-3">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
             <h4 align="center">{{ leMateriau.numeroIg }} {{ leMateriau.libelle }}</h4>
             <img class="img-responsive vignette" src="{{ leMateriau.vignetteUrl }}" alt="">
         </div>
         <div class="col-md-5">
-            <h3 align="center">Caractéristiques </h3>
+            <h3 align="center" class="background"><span>Caractéristiques</span></h3>
             <p><i>{{ leMateriau.description }}</i></p> <br>
             {% if leMateriau.getLesLieux() is empty %}
                 <h3>Principaux lieux de disponibilité</h3>
@@ -22,7 +22,7 @@
                     <li>Inconnu</li> <br>
                 </ul>
             {% else %}
-                <h3 align="center">Principaux lieux de disponibilité</h3>
+                <h3 align="center" class="background"><span>Principaux lieux de disponibilité</span></h3>
                 <ul>
                     {% for lieu in leMateriau.getLesLieux() %}
                         <li>{{ lieu.getLibelle() }}</li> <br>
@@ -33,9 +33,9 @@
         <div class="col-md-2"></div>
     </div>
     <div align="center" class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-3">
-            <h3>Effet une fois cuisiné</h3>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <h3 align="center" class="background"> <span> Effet une fois cuisiné </span></h3>
             {% if leMateriau.lesEffets is not empty %}
                     {% for effet in leMateriau.lesEffets %}
                         {% if effet.libelle == "Cœurs Max" %}
@@ -50,7 +50,7 @@
             {% endif %}
         </div>
         <div class="col-md-5">
-            <h3>Energie vitale restaurée</h3>
+            <h3 align="center" class="background"> <span> Energie vitale restaurée </span></h3>
             {% if leMateriau.energie == 0.5 %}
                 <img class="img-responsive heart" width="8%" height="8%" src="{{ asset('images/HeartContainers05TRANS.png') }}">
             {% elseif leMateriau.energie == 1 %}
@@ -90,13 +90,13 @@
             </div>
 
             {% for leMateriau in lesAutresMateriaux %}
-                <div class="col-sm-1 col-xs-2">
+                <div class="col-sm-2 col-xs-5">
                     <a href="{{  path('zelda_materiau', {'id': leMateriau.id}) }}">
-                        <img class="img-responsive" src="{{ leMateriau.vignetteUrl }}" alt="" width="100" height="100" >
+                        <img class="thumbnail autre_projet" src="{{ leMateriau.vignetteUrl }}" alt=""  >
                     </a>
-                    <h4>
+                    <h5>
                         <a href="{{ path('zelda_materiau', {'id': leMateriau.id}) }}">{{ leMateriau.libelle }}</a>
-                    </h4>
+                    </h5>
                 </div>
             {% endfor %}
         </div>

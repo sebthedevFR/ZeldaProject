@@ -18,6 +18,11 @@ body {
     width: 250px;
 }
 
+.bouton_custom
+{
+    margin-left:-5%;
+    display:inline;
+}
 .btn {
      background-color: #0d6aad;
      /*box-shadow: 0 0 20px 1px #00a7d0;*/
@@ -30,7 +35,12 @@ body {
 .indexCateg {
     border-radius: 15px;
 }
-
+.image_efficacite{
+    display:inline-block;
+    width:16px;
+    height:16px;
+    margin-left:42%;
+}
 h3.background {
     position: relative;
     z-index: 1;

@@ -11,9 +11,10 @@
         <div class="col-md-4">
             <h3 align="center">{{ leMateriau.numeroIg }} {{ leMateriau.libelle }}</h3>
             <br>
-            <img class="img-responsive vignette thumbnail" src="{{ leMateriau.vignetteUrl }}" alt="">
+            <img class="img-responsive  thumbnail" src="{{ leMateriau.vignetteUrl }}" alt="">
         </div>
         <div class="col-md-5">
+            <br> <br>
             <h3 align="center" class="background"><span>Caractéristiques</span></h3>
             <p><i>{{ leMateriau.description }}</i></p> <br>
             {% if leMateriau.getLesLieux() is empty %}

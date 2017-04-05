@@ -10,4 +10,14 @@ namespace ZeldaBundle\Repository;
  */
 class AnimauxRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function lesAutresAnimaux($id)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->select('p')
+            ->where('p.id != :id')
+            ->setMaxResults(6)
+            ->orderBy('p.laCategorieAnimaux')
+            ->setParameter("id", $id);
+        return $qb->getQuery()->getResult();
+    }
 }

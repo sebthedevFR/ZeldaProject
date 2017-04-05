@@ -10,4 +10,14 @@ namespace ZeldaBundle\Repository;
  */
 class MonstreRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function lesAutresMonstres($id)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->select('p')
+            ->where('p.id != :id')
+            ->setMaxResults(6)
+            ->orderBy('p.laCategorieMonstre')
+            ->setParameter("id", $id);
+        return $qb->getQuery()->getResult();
+    }
 }

@@ -6,25 +6,19 @@
 {% endblock %}
 {% block title %}{{ leAnimal.libelle }}{% endblock %}
 {% block pageContent %}
-    <!-- Portfolio Item Heading -->
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">{{ leAnimal.libelle }}
-                <small>{{ leAnimal.numeroIg }}</small>
-            </h1>
-        </div>
-    </div>
-    <!-- /.row -->
 
+    <br> <br>
     <!-- Portfolio Item Row -->
     <div class="row">
-
-        <div class="col-md-8">
-            <img class="img-responsive" src="{{ leAnimal.vignetteUrl }}" alt="">
-
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <h3 align="center">{{ leAnimal.numeroIg }} {{ leAnimal.libelle }}</h3>
+            <br>
+            <img  class="img-responsive thumbnail" src="{{ leAnimal.vignetteUrl }}" alt="">
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-5">
+            <br> <br>
             <h3 align="center" class="background"><span>Caractéristiques</span></h3>
             <p>{{ leAnimal.description }}</p>
             {% if leAnimal.getLesLieux() is empty %}
@@ -41,6 +35,7 @@
                 </ul>
             {% endif %}
         </div>
+        <div class="col-md-2"></div>
     </div>
     <!-- /.row -->
 
@@ -65,14 +60,15 @@
         <div class="col-lg-12">
             <h3 class="page-header">Autres monstres.</h3>
         </div>
-        {% for unAnimal in lesAnimaux %}
-            <div class="col-sm-1 col-xs-2">
-                <a href="{{  path('zelda_animaux', {'id': unAnimal.id}) }}" >
-                    <img class="img-responsive" src="{{ unAnimal.vignetteUrl }}" alt="" width="100" height="100">
+
+        {% for unAnimal in lesAutresAnimaux %}
+            <div class="col-sm-2 col-xs-5">
+                <a href="{{  path('zelda_animaux', {'id': unAnimal.id}) }}">
+                    <img class="thumbnail autre_projet" src="{{ unAnimal.vignetteUrl }}" alt=""  >
                 </a>
-                <h4>
+                <h5>
                     <a href="{{ path('zelda_animaux', {'id': unAnimal.id}) }}">{{ unAnimal.libelle }}</a>
-                </h4>
+                </h5>
             </div>
         {% endfor %}
     </div>

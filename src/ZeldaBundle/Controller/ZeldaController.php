@@ -36,8 +36,9 @@ class ZeldaController extends Controller
         $em=$this->getDoctrine()->getManager();
         $lesArmesRepository = $em->getRepository('ZeldaBundle:Arme');
         $listArmes=$lesArmesRepository->findAll();
+        $lesAutresArmes = $this->getDoctrine()->getRepository('ZeldaBundle:Arme')->lesAutresArmes($id);
 
-        return $this->render('ZeldaBundle:Zelda:item.html.twig', array('uneArme'=>$uneArme, 'lesArmes'=>$listArmes));
+        return $this->render('ZeldaBundle:Zelda:item.html.twig', array('uneArme'=>$uneArme, 'lesArmes'=>$listArmes, 'lesAutresArmes' => $lesAutresArmes));
     }
 
     public function afficherMonstreCategAction()
@@ -62,8 +63,9 @@ class ZeldaController extends Controller
         $em=$this->getDoctrine()->getManager();
         $lesMonstresRepository = $em->getRepository('ZeldaBundle:Monstre');
         $listMonstres=$lesMonstresRepository->findAll();
+        $lesAutresMonstres = $this->getDoctrine()->getRepository('ZeldaBundle:Monstre')->lesAutresMonstres($id);
 
-        return $this->render('ZeldaBundle:Zelda:monstre.html.twig', array('unMonstre'=>$unMonstre, 'lesMonstres'=>$listMonstres));
+        return $this->render('ZeldaBundle:Zelda:monstre.html.twig', array('unMonstre'=>$unMonstre, 'lesMonstres'=>$listMonstres, 'lesAutresMonstres' => $lesAutresMonstres));
     }
 
     public function afficherMatCategAction()
@@ -117,7 +119,8 @@ class ZeldaController extends Controller
         $em = $this->getDoctrine()->getManager();
         $lesAnimauxRepository = $em->getRepository('ZeldaBundle:Animaux');
         $lesAnimaux = $lesAnimauxRepository->findAll();
+        $lesAutresAnimaux = $this->getDoctrine()->getRepository('ZeldaBundle:Animaux')->lesAutresAnimaux($id);
 
-        return $this->render('ZeldaBundle:Zelda:animaux.html.twig', array('leAnimal'=>$leAnimal,'lesAnimaux'=>$lesAnimaux));
+        return $this->render('ZeldaBundle:Zelda:animaux.html.twig', array('leAnimal'=>$leAnimal,'lesAnimaux'=>$lesAnimaux, 'lesAutresAnimaux' => $lesAutresAnimaux));
     }
 }

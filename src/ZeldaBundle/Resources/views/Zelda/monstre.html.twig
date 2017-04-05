@@ -35,10 +35,6 @@
             {% endif %}
 
             {% if unMonstre.getLesMateriaux() is empty %}
-                <h3 align="center" class="background"><span>Matériaux récupérables</span></h3>
-                <ul>
-                    <li>Aucun</li>
-                </ul>
             {% else %}
                 <h3 align="center" class="background"><span>Matériaux récupérables</span></h3>
                     {% for materiaux in unMonstre.getLesMateriaux() %}

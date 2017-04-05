@@ -35,12 +35,17 @@ h3:before
 
 }
 
-    span
-    {
-        /* to hide the lines from behind the text, you have to set the background color the same as the container */
-        background: #fff;
-        padding: 0 5px;
-    }
+.vignette{
+    width: 254px;
+    height: 282px;
+}
+
+span
+{
+    /* to hide the lines from behind the text, you have to set the background color the same as the container */
+    background: #fff;
+    padding: 0 5px;
+}
 
 
 h1, p, li, h3, a, h4, .smalltext{
@@ -72,11 +77,6 @@ ul {
     width: 120px;
 }
 
-
-/*div{*/
-     /*background-image: url("../images/itemBackground.png");*/
-    /*background-repeat: repeat;*/
- /*}*/
 
 
 

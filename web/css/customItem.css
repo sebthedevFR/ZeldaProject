@@ -15,6 +15,9 @@ body{
  * Available on GitHub Gist: https://gist.github.com/2045198
  */
 
+.efficacite{
+    display:inline;
+}
 
 h3.background {
     position: relative;

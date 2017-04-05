@@ -1,4 +1,5 @@
 {% extends "ZeldaBundle::layout.html.twig" %}
+{% block description %}Votre encyclopédie compléte du monde de Breath Of The Wild{% endblock %}
 {% block title %}ZeldaPedia{% endblock %}
 {% block pageContent %}
     <!-- Jumbotron Header -->
@@ -52,6 +53,9 @@
             </h3>
         </div>
     </div>
+
+    {#Bouton Facebook Partage#}
+    <div class="fb-share-button" data-href="{{ app.request.getUri }}" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ app.request.getUri }}">Partager</a></div>
     <!-- /.row -->
         <!-- /.row -->
         <hr>

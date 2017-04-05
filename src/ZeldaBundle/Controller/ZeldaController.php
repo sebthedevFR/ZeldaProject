@@ -5,6 +5,7 @@ namespace ZeldaBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\BrowserKit\Request;
 
 class ZeldaController extends Controller
 {
@@ -37,6 +38,7 @@ class ZeldaController extends Controller
         $lesArmesRepository = $em->getRepository('ZeldaBundle:Arme');
         $listArmes=$lesArmesRepository->findAll();
         $lesAutresArmes = $this->getDoctrine()->getRepository('ZeldaBundle:Arme')->lesAutresArmes($id);
+
 
         return $this->render('ZeldaBundle:Zelda:item.html.twig', array('uneArme'=>$uneArme, 'lesArmes'=>$listArmes, 'lesAutresArmes' => $lesAutresArmes));
     }

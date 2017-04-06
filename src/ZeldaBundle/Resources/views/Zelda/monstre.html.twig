@@ -4,6 +4,10 @@
     {{ parent() }}
     <link type="text/css" href="{{ asset('css/customItem.css') }}" rel="stylesheet">
 {% endblock %}
+{% block urlPartage %}{{ app.request.getUri }}{% endblock %}
+{% block titrePartage %}{{ unMonstre.libelle }}{% endblock %}
+{% block descriptionPartage %}{{ unMonstre.description }}{% endblock %}
+{% block urlImagePartage %}{{ unMonstre.vignetteUrl }}{% endblock %}
 {% block title %}{{ unMonstre.libelle }}{% endblock %}
 {% block pageContent %}
     <br><br>
@@ -42,7 +46,11 @@
                     {% endfor %}
             {% endif %}
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            {#Bouton Facebook Partage#}
+            <div class="fb-share-button" data-href="{{ app.request.getUri }}" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ app.request.getUri }}">Partager</a></div>
+
+        </div>
     </div>
     <!-- /.row -->
 

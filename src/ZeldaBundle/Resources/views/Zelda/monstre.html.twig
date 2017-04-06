@@ -75,13 +75,12 @@
         <div class="col-lg-12">
             <h3 class="page-header">Autres monstres</h3>
         </div>
-
         {% for unMonstre in lesAutresMonstres %}
-            <div class="col-sm-2 col-xs-5">
+            <div class="col-sm-2 col-xs-6">
                 <a href="{{  path('zelda_monstre', {'id': unMonstre.id}) }}">
                     <img class="thumbnail autre_projet" src="{{ unMonstre.vignetteUrl }}" alt=""  >
                 </a>
-                <h5>
+                <h5 class="centertext">
                     <a href="{{ path('zelda_monstre', {'id': unMonstre.id}) }}">{{ unMonstre.libelle }}</a>
                 </h5>
             </div>

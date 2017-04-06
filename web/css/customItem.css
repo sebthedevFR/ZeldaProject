@@ -77,6 +77,11 @@ ul {
 .autre_projet{
     height: 120px;
     width: 120px;
+    margin: auto;
+}
+
+.centertext{
+    text-align: center;
 }
 
 

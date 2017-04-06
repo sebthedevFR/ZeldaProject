@@ -70,11 +70,11 @@
         </div>
 
         {% for unAnimal in lesAutresAnimaux %}
-            <div class="col-sm-2 col-xs-5">
+            <div class="col-sm-2 col-xs-6">
                 <a href="{{  path('zelda_animaux', {'id': unAnimal.id}) }}">
                     <img class="thumbnail autre_projet" src="{{ unAnimal.vignetteUrl }}" alt=""  >
                 </a>
-                <h5>
+                <h5 class="centertext">
                     <a href="{{ path('zelda_animaux', {'id': unAnimal.id}) }}">{{ unAnimal.libelle }}</a>
                 </h5>
             </div>

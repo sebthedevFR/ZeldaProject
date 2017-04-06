@@ -62,13 +62,12 @@
             <div class="col-lg-12">
                 <h3 class="page-header">Autres armes.</h3>
             </div>
-
             {% for laArme in lesAutresArmes %}
-                <div class="col-sm-2 col-xs-5">
+                <div class="col-sm-2 col-xs-6">
                     <a href="{{  path('zelda_item', {'id': laArme.id}) }}">
                         <img class="thumbnail autre_projet" src="{{ laArme.vignetteUrl }}" alt=""  >
                     </a>
-                    <h5>
+                    <h5 class="centertext">
                         <a href="{{ path('zelda_item', {'id': laArme.id}) }}">{{ laArme.libelle }}</a>
                     </h5>
                 </div>

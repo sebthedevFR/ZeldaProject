@@ -27,7 +27,7 @@
     <div class="container-fluid">
         <div class="row no-gutter" id="conteneur">
             {% for monstre in lesMonstres %}
-                <div class="col-sm-3 col-xs-5 mix {{ monstre.laCategorieMonstre.libelleNoEspaceMonstre }}" data-name="{{ monstre.libelle }}">
+                <div class="col-sm-3 col-xs-6 mix {{ monstre.laCategorieMonstre.libelleNoEspaceMonstre }}" data-name="{{ monstre.libelle }}">
                     <a href="{{ path('zelda_monstre', {'id': monstre.id}) }}">
                         <img class="img-responsive thumbnail autre_projet" src="{{ monstre.vignetteUrl }}" alt="" width="700" height="400">
                     </a>

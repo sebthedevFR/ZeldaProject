@@ -23,7 +23,7 @@
     <div class="container-fluid">
         <div class="row no-gutter" id="conteneur">
             {% for armes in lesArmes %}
-                <div class="col-sm-3 col-xs-5 mix {{ armes.laCategorie.libellenoespace }}" data-name="{{ armes.libelle }}">
+                <div class="col-sm-3 col-xs-6 mix {{ armes.laCategorie.libellenoespace }}" data-name="{{ armes.libelle }}">
                     <a href="{{ path('zelda_item', {'id': armes.id}) }}">
                         <img class="img-responsive autre_projet thumbnail" src="{{ armes.vignetteUrl }}" alt="" width="700" height="400">
                     </a>

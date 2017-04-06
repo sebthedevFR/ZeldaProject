@@ -22,6 +22,7 @@ body{
 h3.background {
     position: relative;
     z-index: 1;
+    line-height: 40px;
 }
 h3:before
      {
@@ -38,6 +39,7 @@ h3:before
 .vignette{
     width: 254px;
     height: 282px;
+    margin: auto;
 }
 
 span

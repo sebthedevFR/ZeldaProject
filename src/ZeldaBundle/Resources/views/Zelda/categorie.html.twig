@@ -15,6 +15,7 @@
                 {% endfor %}
                 <button class="filter btn-filter btn btn-primary btn-lg"  data-sort="name:asc">(A - Z)</button>
                 <button class="filter btn-filter btn btn-primary btn-lg"  data-sort="name:desc">(Z -A)</button>
+                <input class="btn btn-primary " type="text" id="input" placeholder="Rechercher" > <img class="bouton_custom" src="{{ asset('images/search.png') }}">
             </div>
         </div>
     </div>
@@ -22,11 +23,11 @@
     <div class="container-fluid">
         <div class="row no-gutter" id="conteneur">
             {% for armes in lesArmes %}
-                <div class="col-sm-3 col-xs-5 mix {{ armes.laCategorie.libellenoespace }}" data-name="{{ armes.libelle }}">
+                <div class="col-sm-3 col-xs-6 mix {{ armes.laCategorie.libellenoespace }}" data-name="{{ armes.libelle }}">
                     <a href="{{ path('zelda_item', {'id': armes.id}) }}">
                         <img class="img-responsive autre_projet thumbnail" src="{{ armes.vignetteUrl }}" alt="" width="700" height="400">
                     </a>
-                    <h4>
+                    <h4 class="title">
                         <a href="{{ path('zelda_item', {'id': armes.id}) }}">{{ armes.libelle }}</a>
                     </h4>
                 </div>
@@ -40,5 +41,52 @@
         $(function () {
             $('#conteneur').mixItUp();
         });
+    </script>
+    <script>
+        $(function() {
+
+            $("#conteneur").mixItUp();
+
+            var inputText;
+            var $matching = $();
+
+            // Delay function
+            var delay = (function(){
+                var timer = 0;
+                return function(callback, ms){
+                    clearTimeout (timer);
+                    timer = setTimeout(callback, ms);
+                };
+            })();
+
+            $("#input").keyup(function(){
+                // Delay function invoked to make sure user stopped typing
+                delay(function(){
+                    inputText = $("#input").val().toLowerCase();
+
+                    // Check to see if input field is empty
+                    if ((inputText.length) > 0) {
+                        $( '.mix').each(function() {
+                            $this = $("this");
+
+                            // add item to be filtered out if input text matches items inside the title
+                            if($(this).children('.title').text().toLowerCase().match(inputText)) {
+                                $matching = $matching.add(this);
+                            }
+                            else {
+                                // removes any previously matched item
+                                $matching = $matching.not(this);
+                            }
+                        });
+                        $("#conteneur").mixItUp('filter', $matching);
+                    }
+
+                    else {
+                        // resets the filter to show all item if input is empty
+                        $("#conteneur").mixItUp('filter', 'all');
+                    }
+                }, 200 );
+            });
+        })
     </script>
 {% endblock %}

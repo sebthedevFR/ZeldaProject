@@ -15,10 +15,14 @@ body{
  * Available on GitHub Gist: https://gist.github.com/2045198
  */
 
+.efficacite{
+    display:inline;
+}
 
 h3.background {
     position: relative;
     z-index: 1;
+    line-height: 40px;
 }
 h3:before
      {
@@ -32,12 +36,18 @@ h3:before
 
 }
 
-    span
-    {
-        /* to hide the lines from behind the text, you have to set the background color the same as the container */
-        background: #fff;
-        padding: 0 5px;
-    }
+.vignette{
+    width: 254px;
+    height: 282px;
+    margin: auto;
+}
+
+span
+{
+    /* to hide the lines from behind the text, you have to set the background color the same as the container */
+    background: #fff;
+    padding: 0 5px;
+}
 
 
 h1, p, li, h3, a, h4, .smalltext{
@@ -67,13 +77,13 @@ ul {
 .autre_projet{
     height: 120px;
     width: 120px;
+    margin: auto;
 }
 
+.centertext{
+    text-align: center;
+}
 
-/*div{*/
-     /*background-image: url("../images/itemBackground.png");*/
-    /*background-repeat: repeat;*/
- /*}*/
 
 
 

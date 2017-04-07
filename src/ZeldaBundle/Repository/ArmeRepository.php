@@ -10,4 +10,15 @@ namespace ZeldaBundle\Repository;
  */
 class ArmeRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function lesAutresArmes($id)
+    {
+        $qb=$this->createQueryBuilder('p')
+            ->select('p')
+            ->where('p.id != :id')
+            ->setMaxResults(6)
+            ->orderBy('p.laCategorie')
+            ->setParameter("id",$id);
+        return $qb->getQuery()->getResult();
+    }
 }

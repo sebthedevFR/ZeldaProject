@@ -30,7 +30,7 @@
     <div class="container-fluid">
         <div class="row " id="conteneur">
             {% for materiau in lesMateriaux %}
-                <div class="col-sm-3 col-xs-5  mix {{ materiau.laCategorieMateriau.libellenoespace }} " data-name="{{ materiau.libelle }}" >
+                <div class="col-sm-3 col-xs-6  mix {{ materiau.laCategorieMateriau.libellenoespace }} " data-name="{{ materiau.libelle }}" >
                     <a href="{{ path('zelda_materiau', {'id': materiau.id}) }}">
                         <img class="img-responsive thumbnail autre_projet" src="{{ materiau.vignetteUrl }}" alt="">
                     </a>
